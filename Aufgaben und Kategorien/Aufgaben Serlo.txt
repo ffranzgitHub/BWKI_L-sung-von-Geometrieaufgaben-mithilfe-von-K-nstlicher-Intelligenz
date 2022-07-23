@@ -1,0 +1,80 @@
+https://de.serlo.org/mathe/167486/aufgaben-zu-kongruenz-und-%C3%A4hnlichkeit-von-dreiecken
+Aufgabe 3)
+Ein Dreieck hat die Winkel 52.6°, 30.18° und 97.22° und die Seitenlängen 4cm 2.53cm und 5cm
+Ein Rechtwinkliges Dreieck hat den Winkel 90°, ?, ? und die Katheten 3cm und 4cm
+Ein Dreieck hat die Winkel 97.22°, 52.6° und 30.18° und die Seitenlängen 5cm 4cm und 2.53cm
+Ein Rechtwinkliges Dreieck hat die Winkel 90°, 51.34° und ?° und eine Kathete von 4cm
+Ein Rechtwinkliges Dreieck hat die Winkel 90°, ?, 51.34° und eine Kathete von 4cm
+Ein Rechtwinkliges Dreieck hat den Winkel 90°, ?, ? und die Katheten 3cm und 4cm
+
+Welche dieser Dreiecke sind Kongruent?
+
+Aufgabe 4)
+a)
+Dreieck A: a = 3cm, b= 7cm, c = 5cm
+Dreieck A: a = 4.5cm, b = 10.5cm, c = 7.5cm
+
+Sind die beiden Dreiecke Ähnlich?
+b)
+Dreieck A: A=105° und B=46°
+Dreieck A: A=105° und B=29°
+
+https://de.serlo.org/mathe/30678/aufgaben-zur-satzgruppe-des-pythagoras
+Aufgabe 2)
+a)
+Katheten: 5cm und 8cm
+Berechne die Hypothenuse
+
+b)
+Katheten: 2cm und 9cm
+Berechne die Hypothenuse
+
+c)
+Kathete: 10cm
+Hypothenuse: 15cm
+Berechne die fehlende Kathete
+
+d)
+Kathete: 28cm
+Hypothenuse: 45cm
+Berechne die fehlende Kathete
+
+e)
+Kathete: 8cm
+Hyptohhenuse: 12cm
+Berechne die fehlende Kathete
+
+Aufgabe 3)
+a)
+Kathete: 500cm
+Hyptohhenuse: 781cm
+Berechne die fehlende Kathete
+
+b)
+Kathete: 800cm und 700cm
+Berechne die fehlende Hypthenuse
+
+Aufgabe 4)
+Ein Rechteck hat die Seitenlänge 12cm und 5cm. Berechne die Diagonale des Rechtecks
+
+Aufgabe 13)
+a)
+Ein Dreieck hat die Seitenlängen 3cm, 4cm und 5cm.
+Ist es Rechtwinklig?
+
+a)
+Ein Dreieck hat die Seitenlängen 5cm, 13cm und 12cm.
+Ist es Rechtwinklig?
+
+Aufgabe 14)
+Berechne die Seitenlängen des Dreiecks ABC mit A(3|2), B(1|1) und C(5|-1)
+
+https://de.serlo.org/mathe/30679/aufgaben-zum-sinus-und-kosinus-am-einheitskreis
+
+Aufgabe 1)
+Nenne einen Winkel für den Gilt: sin(A) = 0.5
+
+Aufgabe 2)
+a) Nenne einen Winkel für den Gilt: sin(A) = 1/2*Wurzel(2)
+b) Nenne einen Winkel für den Gilt: sin(A/2) = 1
+c) Nenne einen Winkel für den Gilt: sin(A) = -2

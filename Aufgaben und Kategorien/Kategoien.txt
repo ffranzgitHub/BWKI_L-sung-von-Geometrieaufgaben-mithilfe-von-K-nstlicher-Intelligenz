@@ -1,0 +1,20 @@
+=====================================================================================
+Kategorie 1) --> Lösen von Aufgaben in rechtwinkligen Dreiecken mit Pythagoras.
+Beispiel:
+Katheten: a = 5cm und b   = 8cm
+Berechne die Hypothenuse
+=====================================================================================
+
+=====================================================================================
+Kategorie 2) --> Ähnlichkeit von Dreiecken
+Beispiel:
+Dreieck A: A=105° und B=46°
+Dreieck B: A=105° und B=29°
+Sind die Dreiecke ähnlich?
+=====================================================================================
+
+=====================================================================================
+Kategorie 3) --> Längen und Winkel eines Dreiecks mit Sinus, Cosinus
+Beispiel:
+a) Nenne einen Winkel für den Gilt: sin(A) = 1/2*Wurzel(2)
+=====================================================================================

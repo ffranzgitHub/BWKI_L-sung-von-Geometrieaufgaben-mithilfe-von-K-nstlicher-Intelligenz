@@ -19,9 +19,12 @@ alpa = 4,5 betha =  5,5
 asdflöjj.a = ?. 10,10  =  10,10
 '''
 
+beispiel_aufgabe= "Katheten: a=5cm und b   =   8cm Berechne die Hypothenuse"
+
 
 new_string3 = re.sub('(\d+,\d+|\w+|\?+) *= *(\?+|\d+,\d+|\w+)', convert, string3)
+new_beispiel_aufgabe = re.sub('(\d+,\d+|\w+|\?+) *= *(\?+|\d+,\d+|\w+)', convert, beispiel_aufgabe)
 
 
-print(string3)
-print(new_string3)
+#print(string3)
+#print(new_string3)
