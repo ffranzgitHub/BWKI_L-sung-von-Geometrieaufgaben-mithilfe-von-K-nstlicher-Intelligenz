@@ -1,7 +1,7 @@
 =====================================================================================
 Kategorie 1) --> Lösen von Aufgaben in rechtwinkligen Dreiecken mit Pythagoras.
 Beispiel:
-Katheten: a = 5cm und b   = 8cm
+Katheten: a = 5cm und b = 8cm
 Berechne die Hypothenuse
 =====================================================================================
 
