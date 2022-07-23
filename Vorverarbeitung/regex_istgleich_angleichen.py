@@ -1,3 +1,9 @@
+'''
+mit Hilfe von Regulären Expressions werden alle "Variablenzuweisungen" wie a = 10 angegliche, um 
+verschiede Anzahlen von Leerzeichen zwischen den Leerzeichen anzugleichen
+'''
+
+
 import re
 
 string = '''
