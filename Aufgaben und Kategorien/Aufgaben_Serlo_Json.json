@@ -1,0 +1,9 @@
+
+[
+    [{"Text": "Ein Dreieck hat die Winkel 52.6°, 30.18° und 97.22° und die Seitenlängen 4cm 2.53cm und 5cm. Ist das Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken", "Ja-Nein Frage": true}],
+    [{"Text": "Ein Rechtwinkliges Dreieck hat den Winkel 90°, ?, ? und die Katheten 3cm und 4cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}], 
+    [{"Text": "Ein Dreieck hat die Winkel 97.22°, 52.6° und 30.18° und die Seitenlängen 5cm 4cm und 2.53cm. Ist dieses Dreieck kongruent?"}],
+    [{"Text": "Ein Rechtwinkliges Dreieck hat die Winkel 90°, 51.34° und ?° und eine Kathete von 4cm. Ist dieses Dreieck kongruent?"}],
+    [{"Text": "Ein Rechtwinkliges Dreieck hat die Winkel 90°, ?, 51.34° und eine Kathete von 4cm. Ist dieses Dreieck kongruent?"}],
+    [{"Text": "Ein Rechtwinkliges Dreieck hat den Winkel 90°, ?, ? und die Katheten 3cm und 4cm. Ist dieses Dreieck kongruent?"}]
+]
