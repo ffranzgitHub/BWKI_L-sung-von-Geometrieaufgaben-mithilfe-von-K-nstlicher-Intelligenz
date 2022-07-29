@@ -1,12 +1,12 @@
 =====================================================================================
-Kategorie 1) --> Lösen von Aufgaben in rechtwinkligen Dreiecken mit Pythagoras.
+Kategorie 1) --> Satz des Pythagoras
 Beispiel:
 Katheten: a = 5cm und b = 8cm
 Berechne die Hypothenuse
 =====================================================================================
 
 =====================================================================================
-Kategorie 2) --> Ähnlichkeit von Dreiecken
+Kategorie 2) --> Kongruenz von Dreiecken
 Beispiel:
 Dreieck A: A=105° und B=46°
 Dreieck B: A=105° und B=29°

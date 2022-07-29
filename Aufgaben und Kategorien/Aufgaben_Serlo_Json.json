@@ -1,9 +1,26 @@
 
 [
-    [{"Text": "Ein Dreieck hat die Winkel 52.6°, 30.18° und 97.22° und die Seitenlängen 4cm 2.53cm und 5cm. Ist das Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken", "Ja-Nein Frage": true}],
-    [{"Text": "Ein Rechtwinkliges Dreieck hat den Winkel 90°, ?, ? und die Katheten 3cm und 4cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}], 
-    [{"Text": "Ein Dreieck hat die Winkel 97.22°, 52.6° und 30.18° und die Seitenlängen 5cm 4cm und 2.53cm. Ist dieses Dreieck kongruent?"}],
-    [{"Text": "Ein Rechtwinkliges Dreieck hat die Winkel 90°, 51.34° und ?° und eine Kathete von 4cm. Ist dieses Dreieck kongruent?"}],
-    [{"Text": "Ein Rechtwinkliges Dreieck hat die Winkel 90°, ?, 51.34° und eine Kathete von 4cm. Ist dieses Dreieck kongruent?"}],
-    [{"Text": "Ein Rechtwinkliges Dreieck hat den Winkel 90°, ?, ? und die Katheten 3cm und 4cm. Ist dieses Dreieck kongruent?"}]
+    [{"Text": "Ein Dreieck hat die Winkel A=52.6°, B=30.18° und C=97.22° und die Seitenlängen 4cm 2.53cm und 5cm. Ist das Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken", "Ja-Nein Frage": true}],
+    [{"Text": "Ein Rechtwinkliges Dreieck hat den Winkel A=90°, B=?, C=? und die Katheten 3cm und 4cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}], 
+    [{"Text": "Ein Dreieck hat die Winkel A=97.22°, B=52.6° und C=30.18° und die Seitenlängen a=5cm b=4cm und c=2.53cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}],
+    [{"Text": "Ein Rechtwinkliges Dreieck hat die Winkel A=90°, B ist gleich 51.34° und C ist = ?° und eine Kathete von 4cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}],
+    [{"Text": "Ein Rechtwinkliges Dreieck hat die Winkel A=90°, B=?, C=51.34° und eine Kathete von a=4cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}],
+    [{"Text": "Ein Rechtwinkliges Dreieck hat den Winkel A=90°, B ist gleich=?, C=? und die Katheten a=3cm und b=4cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}],
+    [{"Text": "Katheten: 5cm und 8cm Berechne die Hypothenuse","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
+    [{"Text": "Katheten: 2cm und 9cm Berechne die Hypothenuse","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
+    [{"Text": "Kathete: 10cm Hypothenuse: 15cm Berechne die fehlende Kathete","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
+    [{"Text": "Kathete: 28cm Hypothenuse: 45cm Berechne die fehlende Kathete","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
+    [{"Text": "Kathete: 8cm Hyptohhenuse: 12cm Berechne die fehlende Kathete","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
+    [{"Text": "Kathete: 500cm Hyptohhenuse: 781cm Berechne die fehlende Kathete","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
+    [{"Text": "Kathete: 800cm und 700cm Berechne die fehlende Hypthenuse","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
+    [{"Text": "Ein Rechteck hat die Seitenlänge a=12cm und b=5cm. Berechne die Diagonale des Rechteckse","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
+    [{"Text": "Ein Dreieck hat die Seitenlängen a=3cm, b=4cm und c ist gleich 5cm. Ist es Rechtwinklig?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": true}],
+    [{"Text": "Man nehme ein Dreieck mint den Seitenlängen a ist gleich 3cm, b=4cm und c=5cm. Ist es Rechtwinklig?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": true}],
+    [{"Text": "Berechne die Seitenlängen des Dreiecks ABC mit A(3|2), B(1|1) und C(5|-1)","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
+    [{"Text": "Ein Dreieck hat die Seitenlängen a=5cm, b:13cm und c=12cm. Ist es Rechtwinklig?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
+    [{"Text": "Ein Dreieck hat die Seitenlängen a=5cm, b=13cm und c ist gleich 12cm. Ist es Rechtwinklig?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
+    [{"Text": "Nenne einen Winkel für den Gilt: sin(A) = 0.5","Aufgabentyp": "Sinus und Cosinus","Ja-Nein Frage": false}],
+    [{"Text": "Nenne einen Winkel für den Gilt: sin(A) = 1/2*Wurzel(2)","Aufgabentyp": "Sinus und Cosinus","Ja-Nein Frage": false}],
+    [{"Text": "Nenne einen Winkel für den Gilt: sin(A/2) = 1","Aufgabentyp": "Sinus und Cosinus","Ja-Nein Frage": false}],
+    [{"Text": "Nenne einen Winkel für den Gilt: sin(A) = -2","Aufgabentyp": "Sinus und Cosinus","Ja-Nein Frage": false}]
 ]
