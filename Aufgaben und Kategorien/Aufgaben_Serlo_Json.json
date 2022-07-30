@@ -15,6 +15,7 @@
     [{"Text": "Kathete: 800cm und 700cm Berechne die fehlende Hypthenuse","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
     [{"Text": "Ein Rechteck hat die Seitenlänge a=12cm und b=5cm. Berechne die Diagonale des Rechteckse","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
     [{"Text": "Ein Dreieck hat die Seitenlängen a=3cm, b=4cm und c ist gleich 5cm. Ist es Rechtwinklig?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": true}],
+    [{"Text": "Ein Dreieck mit rechtem Winkel hat die Hypothenuse c=7cm, die Kathete b : 5cm. Wie groß ist c?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
     [{"Text": "Man nehme ein Dreieck mint den Seitenlängen a ist gleich 3cm, b=4cm und c=5cm. Ist es Rechtwinklig?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": true}],
     [{"Text": "Berechne die Seitenlängen des Dreiecks ABC mit A(3|2), B(1|1) und C(5|-1)","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
     [{"Text": "Ein Dreieck hat die Seitenlängen a=5cm, b:13cm und c=12cm. Ist es Rechtwinklig?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
