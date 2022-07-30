@@ -12,7 +12,7 @@ with open("Aufgaben und Kategorien/Aufgaben_Serlo_Json.json", "r") as read_file:
         aufgabe = aufgabe[0]
 
         new_json.append(aufgabe)
-        aufgabent_ext = aufgabe["Text"]
+        aufgaben_text = aufgabe["Text"]
         #named_entities(aufgaben_text) --> auskommentiert, weil es Probleme mit dem Import der named_entities() funltion gab
 
         for word in aufgaben_text.split(" "):
