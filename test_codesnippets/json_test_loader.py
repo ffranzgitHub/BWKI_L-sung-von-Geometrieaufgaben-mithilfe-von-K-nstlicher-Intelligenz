@@ -1,5 +1,5 @@
 import json
-
+from Vorverarbeitung.convert_value_to_NE_regex import named_entities
 
 with open("Aufgaben und Kategorien/Aufgaben_Serlo_Json.json", "r") as read_file:
     aufgaben = json.load(read_file)

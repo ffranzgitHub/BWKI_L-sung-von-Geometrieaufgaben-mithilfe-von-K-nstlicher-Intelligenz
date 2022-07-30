@@ -55,13 +55,6 @@ class ConvertmitVariable():
 #beispiel_aufgabe= "Katheten: a=5cm und b   =   8cm Berechne die Hypothenuse"
 
 
-if __name__ == "__main__":
-    cmv = ConvertmitVariable()
-
-    angepasster_string = re.sub('(\d+,\d+|\w+|\?+) *(=|ist gleich|gleich|:|mit dem Wert|entspricht) *(\?+|\d+,\d+|\w+)', cmv.convert, "die Hypotenuse a : 10 und b = 20")
-    print('\n'+angepasster_string)
-
-    print('\nnamed entitys:\n'+str(cmv.named_entitys))
 
 # Der Coding Style hier ist sehr schlecht von mir. Wollte nur was testen
 def named_entities(aufgabe:str):
@@ -71,3 +64,7 @@ def named_entities(aufgabe:str):
     print('\n'+angepasster_string)
 
     print('\nnamed entitys:\n'+str(cmv.named_entitys))
+
+
+if __name__ == "__main__":
+    named_entities("Ein Dreieck hat die Hypotenuse a : 10 und b = 20")
