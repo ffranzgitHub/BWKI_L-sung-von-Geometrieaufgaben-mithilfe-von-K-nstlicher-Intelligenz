@@ -5,7 +5,7 @@ Arbeitstand genannt.
 - Erste grobe Form des Netzes
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen
 - Viele Aufgaben schreiben
-- regex für "ist gleich" erweitern
+-[x] regex für "ist gleich" erweitern
 - Preprocessing Schritt: wenn zu viele Worte in dem Text nicht erkannt werden wird die Aufgabe nicht akzeptiert
 
 
