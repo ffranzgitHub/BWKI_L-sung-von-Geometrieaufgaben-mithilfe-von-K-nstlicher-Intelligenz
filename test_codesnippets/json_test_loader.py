@@ -1,4 +1,9 @@
 import json
+'''
+Funktion: Laden der Daten, Tokens und Aufgabentyen(Klassen) "zählen"
+
+TODO:überflüssig, wird von den Dateien in Daten Laden übernommen
+'''
 
 with open("daten/Aufgaben_Serlo_Json.json", "r") as read_file:
     aufgaben = json.load(read_file)

@@ -115,7 +115,7 @@ class aufgabenDataset(Dataset):
             self._vectorizer.vectorize(row["Text"])
 
         class_index = \
-            self._vectorizer.rating_vocab.lookup_token(row["Aufgabentyp"])
+            self._vectorizer.class_vocab.lookup_token(row["Aufgabentyp"])
 
         return {'x_data': aufgabe_vector,
                 'y_target': class_index}

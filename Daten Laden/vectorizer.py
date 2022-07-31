@@ -48,13 +48,13 @@ class aufgabenVectorizer():
         
         
         # Add ratings
-        for rating in sorted(set(aufgabe_json["rating"])):
-            class_vocab.add_token(rating)
+        for aufgabentyp in sorted(set([value["Aufgabentyp"] for value in aufgabe_json])):
+            class_vocab.add_token(aufgabentyp)
 
         # Add top words if count > provided count
         word_counts = Counter()
-        for review in aufgabe_json["review"]:
-            for word in review.split(" "):
+        for aufgabe in [value["Text"] for value in aufgabe_json]:
+            for word in aufgabe.split(" "):
                 if word not in string.punctuation:
                     word_counts[word] += 1
                

@@ -1,10 +1,17 @@
 import json
 from stemming import bag_of_words, stem, tokenize, ignore_stop_words
 import stemming
+'''
+# TODO: Die Vorverarbeitung Funktionalität kann vielleicht direkt in die Dataset Klasse 
+intigiert werden
+'''
+
+
 
 with open("daten/Aufgaben_Serlo_Json.json", "r") as read_file:
     aufgaben = json.load(read_file)
 
+    # TODO: Liste an Tokens/Klassen kann mit der Vocaublary Klasse realisiert werden
     all_words = [] # Liste mit allen Wörtern
     classes = [] # Liste mit Aufgabentypen
 
