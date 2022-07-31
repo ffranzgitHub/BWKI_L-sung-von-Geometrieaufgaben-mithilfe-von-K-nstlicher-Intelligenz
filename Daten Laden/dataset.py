@@ -13,27 +13,27 @@ class aufgabenDataset(Dataset):
     torch.utils.data.Dataset ist ein "abstrakter Iterator", der von dem DataLoader gewrappt wird. Das heißt
     es müssen die Funktionen __len__() und __getitem__() überschrieben werden
     '''
-    def __init__(self, aufgabe_df, vectorizer):
+    def __init__(self, aufgaben_json, vectorizer):
         """
         Args:
-            aufgabe_df (pandas.DataFrame): the dataset
+            aufgaben_json (json List,Dic): the dataset
             vectorizer (aufgabenVectorizer): vectorizer instantiated from dataset
         """
-        self.aufgabe_df = aufgabe_df
+        self.aufgaben_json = aufgaben_json
         self._vectorizer = vectorizer
 
-        self.train_df = self.aufgabe_df[self.aufgabe_df.split=='train']
-        self.train_size = len(self.train_df)
+        self.train_json = [element for element in self.aufgaben_json if element['split'] == 'train']
+        self.train_size = len(self.train_json)
 
-        self.val_df = self.aufgabe_df[self.aufgabe_df.split=='val']
-        self.validation_size = len(self.val_df)
+        self.val_json = [element for element in self.aufgaben_json if element['split'] == 'val']
+        self.validation_size = len(self.val_json)
 
-        self.test_df = self.aufgabe_df[self.aufgabe_df.split=='test']
-        self.test_size = len(self.test_df)
+        self.test_json = [element for element in self.aufgaben_json if element['split'] == 'test']
+        self.test_size = len(self.test_json)
 
-        self._lookup_dict = {'train': (self.train_df, self.train_size),
-                             'val': (self.val_df, self.validation_size),
-                             'test': (self.test_df, self.test_size)}
+        self._lookup_dict = {'train': (self.train_json, self.train_size),
+                             'val': (self.val_json, self.validation_size),
+                             'test': (self.test_json, self.test_size)}
 
         self.set_split('train')
 
@@ -46,8 +46,8 @@ class aufgabenDataset(Dataset):
         Returns:
             an instance of ReviewDataset
         """
-        train_aufgabe_json = aufgaben_json[aufgabe_df.split=='train']
-        return cls(aufgabe_df, aufgabenVectorizer.from_dataframe(train_aufgabe_df))
+        train_json = [element for element in aufgaben_json if element['split'] == 'train']
+        return cls(aufgaben_json, aufgabenVectorizer.from_json(train_json))
     
     @classmethod
     def load_dataset_and_load_vectorizer(cls, aufgaben_json, vectorizer_filepath):
@@ -60,9 +60,9 @@ class aufgabenDataset(Dataset):
         Returns:
             an instance of ReviewDataset
         """
-        aufgabe_df = pd.read_csv(aufgaben_json)
+        aufgaben_json = pd.read_csv(aufgaben_json)
         vectorizer = cls.load_vectorizer_only(vectorizer_filepath)
-        return cls(aufgabe_df, vectorizer)
+        return cls(aufgaben_json, vectorizer)
 
     @staticmethod
     def load_vectorizer_only(vectorizer_filepath):
@@ -96,7 +96,7 @@ class aufgabenDataset(Dataset):
             split (str): one of "train", "val", or "test"
         """
         self._target_split = split
-        self._target_df, self._target_size = self._lookup_dict[split]
+        self._target_json, self._target_size = self._lookup_dict[split]
 
     def __len__(self):
         return self._target_size
@@ -109,16 +109,16 @@ class aufgabenDataset(Dataset):
         Returns:
             a dictionary holding the data point's features (x_data) and label (y_target)
         """
-        row = self._target_df.iloc[index]
+        row = self._target_json[index]
 
-        review_vector = \
-            self._vectorizer.vectorize(row.review)
+        aufgabe_vector = \
+            self._vectorizer.vectorize(row["Text"])
 
-        rating_index = \
-            self._vectorizer.rating_vocab.lookup_token(row.rating)
+        class_index = \
+            self._vectorizer.rating_vocab.lookup_token(row["Aufgabentyp"])
 
-        return {'x_data': review_vector,
-                'y_target': rating_index}
+        return {'x_data': aufgabe_vector,
+                'y_target': class_index}
 
     def get_num_batches(self, batch_size):
         """Given a batch size, return the number of batches in the dataset

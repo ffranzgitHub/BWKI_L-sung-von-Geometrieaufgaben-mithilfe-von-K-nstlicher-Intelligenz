@@ -6,7 +6,7 @@ def _add_split(data):
         data: (Json List,dic) 
     '''
     for dic in data[:18]:
-        dic["split"] = "test"
+        dic["split"] = "train"
     for dic in data[18:21]:
         dic["split"] = "val"
     for dic in data[21:]:

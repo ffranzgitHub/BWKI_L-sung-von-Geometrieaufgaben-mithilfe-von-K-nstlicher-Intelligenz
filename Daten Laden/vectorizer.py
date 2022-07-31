@@ -34,11 +34,11 @@ class aufgabenVectorizer():
         return one_hot
 
     @classmethod
-    def from_dataframe(cls, aufgabe_df, cutoff=25):
+    def from_json(cls, aufgabe_json, cutoff=25):
         """Instantiate the vectorizer from the dataset dataframe
         
         Args:
-            aufgabe_df (pandas.DataFrame): the review dataset
+            aufgabe_json (json): the review dataset
             cutoff (int): the parameter for frequency-based filtering
         Returns:
             an instance of the ReviewVectorizer
@@ -46,13 +46,14 @@ class aufgabenVectorizer():
         aufgabe_vocab = aufgabenVocabulary(add_unk=True)
         class_vocab = aufgabenVocabulary(add_unk=False)
         
+        
         # Add ratings
-        for rating in sorted(set(aufgabe_df.rating)):
+        for rating in sorted(set(aufgabe_json["rating"])):
             class_vocab.add_token(rating)
 
         # Add top words if count > provided count
         word_counts = Counter()
-        for review in aufgabe_df.review:
+        for review in aufgabe_json["review"]:
             for word in review.split(" "):
                 if word not in string.punctuation:
                     word_counts[word] += 1
