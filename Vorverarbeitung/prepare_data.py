@@ -2,7 +2,7 @@ import json
 from stemming import bag_of_words, stem, tokenize, ignore_stop_words
 import stemming
 
-with open("Daten Laden/Aufgaben_Serlo_Json.json", "r") as read_file:
+with open("daten/Aufgaben_Serlo_Json.json", "r") as read_file:
     aufgaben = json.load(read_file)
 
     all_words = [] # Liste mit allen Wörtern

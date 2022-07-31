@@ -1,6 +1,6 @@
 import json
 
-with open("Daten Laden/Aufgaben_Serlo_Json.json", "r") as read_file:
+with open("daten/Aufgaben_Serlo_Json.json", "r") as read_file:
     aufgaben = json.load(read_file)
 
     all_words = []
