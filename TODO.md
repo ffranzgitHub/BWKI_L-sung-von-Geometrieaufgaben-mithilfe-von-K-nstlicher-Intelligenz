@@ -9,11 +9,6 @@ Arbeitstand genannt.
 - Stemming einbauen (Levi)
 - Daten umformattieren (Levi)
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen
-<<<<<<< HEAD
-- Viele Aufgaben schreiben
--[x] regex für "ist gleich" erweitern
-=======
->>>>>>> ce8651211350c33da7d38f493011126c61f6fea0
 - Preprocessing Schritt: wenn zu viele Worte in dem Text nicht erkannt werden wird die Aufgabe nicht akzeptiert
 - Stopwörter
 
