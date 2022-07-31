@@ -1,5 +1,5 @@
 import json
-from Vorverarbeitung.convert_value_to_NE_regex import named_entities
+#from Vorverarbeitung.convert_value_to_NE_regex import named_entities
 
 with open("Aufgaben und Kategorien/Aufgaben_Serlo_Json.json", "r") as read_file:
     aufgaben = json.load(read_file)
@@ -9,7 +9,6 @@ with open("Aufgaben und Kategorien/Aufgaben_Serlo_Json.json", "r") as read_file:
 
     new_json = []
     for aufgabe in aufgaben:
-        aufgabe = aufgabe[0]
 
         new_json.append(aufgabe)
         aufgaben_text = aufgabe["Text"]
@@ -22,7 +21,10 @@ with open("Aufgaben und Kategorien/Aufgaben_Serlo_Json.json", "r") as read_file:
             classes.append(aufgabe["Aufgabentyp"])    
 
     #print(new_json)    --> falls wir die Listen um die Aufgaben entfernen wollen
-    print(all_words)
-    print(classes)
+    #print(all_words)
+    #print(classes)
+
+with open("Aufgaben und Kategorien/Aufgaben_Serlo_Json.json", "w") as write_file:
+    json.dump(new_json, write_file, indent=4)
 
     #print(emps[0][0].get("Ja-Nein Frage"))

@@ -1,26 +1,157 @@
 [
-    [{"Text": "Ein Dreieck hat die Winkel A=52.6°, B=30.18° und C=97.22° und die Seitenlängen 4cm 2.53cm und 5cm. Ist das Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken", "Ja-Nein Frage": true}],
-    [{"Text": "Ein Rechtwinkliges Dreieck hat den Winkel A=90°, B=?, C=? und die Katheten 3cm und 4cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}], 
-    [{"Text": "Ein Dreieck hat die Winkel A=97.22°, B=52.6° und C=30.18° und die Seitenlängen a=5cm b=4cm und c=2.53cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}],
-    [{"Text": "Ein Rechtwinkliges Dreieck hat die Winkel A=90°, B ist gleich 51.34° und C ist = ?° und eine Kathete von 4cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}],
-    [{"Text": "Ein Rechtwinkliges Dreieck hat die Winkel A=90°, B=?, C=51.34° und eine Kathete von a=4cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}],
-    [{"Text": "Ein Rechtwinkliges Dreieck hat den Winkel A=90°, B ist gleich=?, C=? und die Katheten a=3cm und b=4cm. Ist dieses Dreieck kongruent?","Aufgabentyp": "Kongruenz von Dreiecken","Ja-Nein Frage": true}],
-    [{"Text": "Katheten: 5cm und 8cm Berechne die Hypothenuse","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Katheten: 2cm und 9cm Berechne die Hypothenuse","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Kathete: 10cm Hypothenuse: 15cm Berechne die fehlende Kathete","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Kathete: 28cm Hypothenuse: 45cm Berechne die fehlende Kathete","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Kathete: 8cm Hyptohhenuse: 12cm Berechne die fehlende Kathete","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Kathete: 500cm Hyptohhenuse: 781cm Berechne die fehlende Kathete","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Kathete: 800cm und 700cm Berechne die fehlende Hypthenuse","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Ein Rechteck hat die Seitenlänge a=12cm und b=5cm. Berechne die Diagonale des Rechteckse","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Ein Dreieck hat die Seitenlängen a=3cm, b=4cm und c ist gleich 5cm. Ist es Rechtwinklig?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": true}],
-    [{"Text": "Ein Dreieck mit rechtem Winkel hat die Hypothenuse c=7cm, die Kathete b : 5cm. Wie groß ist c?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Man nehme ein Dreieck mint den Seitenlängen a ist gleich 3cm, b=4cm und c=5cm. Ist es Rechtwinklig?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": true}],
-    [{"Text": "Berechne die Seitenlängen des Dreiecks ABC mit A(3|2), B(1|1) und C(5|-1)","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Ein Dreieck hat die Seitenlängen a=5cm, b:13cm und c=12cm. Ist es Rechtwinklig?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Ein Dreieck hat die Seitenlängen a=5cm, b=13cm und c ist gleich 12cm. Ist es Rechtwinklig?","Aufgabentyp": "Satz des Pythagoras","Ja-Nein Frage": false}],
-    [{"Text": "Nenne einen Winkel für den Gilt: sin(A) = 0.5","Aufgabentyp": "Sinus und Cosinus","Ja-Nein Frage": false}],
-    [{"Text": "Nenne einen Winkel für den Gilt: sin(A) = 1/2*Wurzel(2)","Aufgabentyp": "Sinus und Cosinus","Ja-Nein Frage": false}],
-    [{"Text": "Nenne einen Winkel für den Gilt: sin(A/2) = 1","Aufgabentyp": "Sinus und Cosinus","Ja-Nein Frage": false}],
-    [{"Text": "Nenne einen Winkel für den Gilt: sin(A) = -2","Aufgabentyp": "Sinus und Cosinus","Ja-Nein Frage": false}]
+    {
+        "Text": "Ein Dreieck hat die Winkel A=52.6\u00c2\u00b0, B=30.18\u00c2\u00b0 und C=97.22\u00c2\u00b0 und die Seitenl\u00c3\u00a4ngen 4cm 2.53cm und 5cm. Ist das Dreieck kongruent?",
+        "Aufgabentyp": "Kongruenz von Dreiecken",
+        "Ja-Nein Frage": true
+    },
+    {
+        "Text": "Ein Rechtwinkliges Dreieck hat den Winkel A=90\u00c2\u00b0, B=?, C=? und die Katheten 3cm und 4cm. Ist dieses Dreieck kongruent?",
+        "Aufgabentyp": "Kongruenz von Dreiecken",
+        "Ja-Nein Frage": true
+    },
+    {
+        "Text": "Ein Dreieck hat die Winkel A=97.22\u00c2\u00b0, B=52.6\u00c2\u00b0 und C=30.18\u00c2\u00b0 und die Seitenl\u00c3\u00a4ngen a=5cm b=4cm und c=2.53cm. Ist dieses Dreieck kongruent?",
+        "Aufgabentyp": "Kongruenz von Dreiecken",
+        "Ja-Nein Frage": true
+    },
+    {
+        "Text": "Ein Rechtwinkliges Dreieck hat die Winkel A=90\u00c2\u00b0, B ist gleich 51.34\u00c2\u00b0 und C ist = ?\u00c2\u00b0 und eine Kathete von 4cm. Ist dieses Dreieck kongruent?",
+        "Aufgabentyp": "Kongruenz von Dreiecken",
+        "Ja-Nein Frage": true
+    },
+    {
+        "Text": "Ein Rechtwinkliges Dreieck hat die Winkel A=90\u00c2\u00b0, B=?, C=51.34\u00c2\u00b0 und eine Kathete von a=4cm. Ist dieses Dreieck kongruent?",
+        "Aufgabentyp": "Kongruenz von Dreiecken",
+        "Ja-Nein Frage": true
+    },
+    {
+        "Text": "Ein Rechtwinkliges Dreieck hat den Winkel A=90\u00c2\u00b0, B ist gleich=?, C=? und die Katheten a=3cm und b=4cm. Ist dieses Dreieck kongruent?",
+        "Aufgabentyp": "Kongruenz von Dreiecken",
+        "Ja-Nein Frage": true
+    },
+    {
+        "Text": "Katheten: 5cm und 8cm Berechne die Hypothenuse",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Katheten: 2cm und 9cm Berechne die Hypothenuse",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Kathete: 10cm Hypothenuse: 15cm Berechne die fehlende Kathete",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Kathete: 28cm Hypothenuse: 45cm Berechne die fehlende Kathete",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Kathete: 8cm Hyptohhenuse: 12cm Berechne die fehlende Kathete",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Kathete: 500cm Hyptohhenuse: 781cm Berechne die fehlende Kathete",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Kathete: 800cm und 700cm Berechne die fehlende Hypthenuse",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Ein Rechteck hat die Seitenl\u00c3\u00a4nge a=12cm und b=5cm. Berechne die Diagonale des Rechteckse",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Ein Dreieck hat die Seitenl\u00c3\u00a4ngen a=3cm, b=4cm und c ist gleich 5cm. Ist es Rechtwinklig?",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": true
+    },
+    {
+        "Text": "Ein Dreieck mit rechtem Winkel hat die Hypothenuse c=7cm, die Kathete b : 5cm. Wie gro\u00c3\u0178 ist c?",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Man nehme ein Dreieck mint den Seitenl\u00c3\u00a4ngen a ist gleich 3cm, b=4cm und c=5cm. Ist es Rechtwinklig?",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": true
+    },
+    {
+        "Text": "Berechne die Seitenl\u00c3\u00a4ngen des Dreiecks ABC mit A(3|2), B(1|1) und C(5|-1)",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Ein Dreieck hat die Seitenl\u00c3\u00a4ngen a=5cm, b:13cm und c=12cm. Ist es Rechtwinklig?",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Ein Dreieck hat die Seitenl\u00c3\u00a4ngen a=5cm, b=13cm und c ist gleich 12cm. Ist es Rechtwinklig?",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Nenne einen Winkel f\u00c3\u00bcr den Gilt: sin(A) = 0.5",
+        "Aufgabentyp": "Sinus und Cosinus",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Nenne einen Winkel f\u00c3\u00bcr den Gilt: sin(A) = 1/2*Wurzel(2)",
+        "Aufgabentyp": "Sinus und Cosinus",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Nenne einen Winkel f\u00c3\u00bcr den Gilt: sin(A/2) = 1",
+        "Aufgabentyp": "Sinus und Cosinus",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Nenne einen Winkel f\u00c3\u00bcr den Gilt: sin(A) = -2",
+        "Aufgabentyp": "Sinus und Cosinus",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Wenn man ein Dreieck mit den Katheten a=3cm, b=4c hat, und das Dreieck rechtwinklig ist: Nenne die größe von c",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Ein rechtwinkliges Dreieck hat zwei Kathete von a=4m und b=5m. Nutze den Satz des Pyhtagoras um die Länge von c zu bestimmen!",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Ein anderes Dreieck hat einen Winkel bei dem gilt sin(A) = 13/2. Nenne eine Möglichkeit für die Größe von A",
+        "Aufgabentyp": "Sinus und Cosinus",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Für den Winkel A gilt: sin(A) = 17/5. Nenne eine Möglichkeit für die Größe von A",
+        "Aufgabentyp": "Sinus und Cosinus",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Bei einem Rechtwinkligem Dreieck gilt, dass a² + b² = c². Wenn man nun eine Kathete a=3cm hat und eine weitere Kathete b=5cm, wie lang ist dann c?",
+        "Aufgabentyp": "Satz des Pythagoras",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Man nehme einen Winkel B=50°. Wie groß ist dann Sin(B)?",
+        "Aufgabentyp": "Sinus und Cosinus",
+        "Ja-Nein Frage": false
+    },
+    {
+        "Text": "Wie groß ist die Kathete b eines rechwinkligen Dreiecks, wenn Kathete a=3cm und Hypothenuse b=4cm gilt?",
+        "Aufgabentyp": "Sinus und Cosinus",
+        "Ja-Nein Frage": false
+    }
 ]
