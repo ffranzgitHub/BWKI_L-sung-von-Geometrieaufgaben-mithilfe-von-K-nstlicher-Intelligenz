@@ -13,4 +13,5 @@ with open(PATH, "r") as file:
     dataset = aufgabenDataset.load_dataset_and_make_vectorizer(json_data)
     x = generate_batches(dataset=dataset, batch_size=1)
 
-    print(next(x))
+    for data in x:
+        print(data)

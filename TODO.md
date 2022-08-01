@@ -4,10 +4,11 @@ Arbeitstand genannt.
 
 - [x] Erste grobe Form des Netzes
 - [x] regex für "ist gleich" und andere erweitern
+- [x] Daten laden (Franz)
+- [x] Stemming einbauen (Levi)
+- [x] Daten umformattieren (Levi)
 - Viele Aufgaben schreiben (Beide)
-- Daten laden (Franz)
-- Stemming einbauen (Levi)
-- Daten umformattieren (Levi)
+- Preprocessing und Daten Laden verbinden
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen
 - Preprocessing Schritt: wenn zu viele Worte in dem Text nicht erkannt werden wird die Aufgabe nicht akzeptiert
 - Stopwörter

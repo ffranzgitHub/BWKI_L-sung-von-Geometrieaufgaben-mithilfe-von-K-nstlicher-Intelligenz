@@ -34,7 +34,7 @@ class aufgabenVectorizer():
         return one_hot
 
     @classmethod
-    def from_json(cls, aufgabe_json, cutoff=25):
+    def from_json(cls, aufgabe_json, cutoff=0):
         """Instantiate the vectorizer from the dataset dataframe
         
         Args:
