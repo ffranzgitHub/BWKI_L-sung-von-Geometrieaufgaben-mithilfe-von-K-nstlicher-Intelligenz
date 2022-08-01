@@ -1,7 +1,7 @@
-from text_to_minibatches import generate_batches
-from split_dataset import _add_split
+from Daten_Laden.text_to_minibatches import generate_batches
+from Daten_Laden.split_dataset import _add_split
 import json
-from dataset import aufgabenDataset
+from Daten_Laden.dataset import aufgabenDataset
 import os
 
 PATH = "daten/Aufgaben_Serlo_Json.json"

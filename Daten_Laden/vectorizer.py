@@ -3,12 +3,12 @@
 
 import numpy as np
 import string
-from vocabulary import aufgabenVocabulary
+from Daten_Laden.vocabulary import aufgabenVocabulary
 from collections import Counter
 
 class aufgabenVectorizer():
     """ The Vectorizer which coordinates the Vocabularies and puts them to use"""
-    def __init__(self, aufgabe_vocab, class_vocab):
+    def __init__(self, aufgabe_vocab: aufgabenVocabulary, class_vocab: aufgabenVocabulary):
         """
         Args:
             aufgabe_vocab (augfabenVocabulary): maps words to integers
@@ -86,3 +86,15 @@ class aufgabenVectorizer():
         """
         return {'aufgabe_vocab': self.aufgabe_vocab.to_serializable(),
                 'class_vocab': self.class_vocab.to_serializable()}
+    
+    def  count_unknown(self, aufgabe):
+        '''
+        die Funktion zähl die unbekannten Tokens in einer Aufgabe und gibt sie zurück
+        '''
+        tokens = aufgabe.split(" ")
+        unk_counter = 0
+        for token in tokens:
+            #TODO: schöner Abfrage, ob Token erkannt wurde (get_unk funktion in vocab)
+            if self.aufgabe_vocab.lookup_token(token) == self.aufgabe_vocab.lookup_token("<UNK>"):
+                unk_counter += 1
+        return unk_counter

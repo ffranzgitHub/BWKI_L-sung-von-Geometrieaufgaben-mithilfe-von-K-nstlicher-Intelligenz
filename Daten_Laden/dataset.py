@@ -4,7 +4,7 @@
 from torch.utils.data import Dataset
 import pandas as pd
 import json
-from vectorizer import aufgabenVectorizer
+from Daten_Laden.vectorizer import aufgabenVectorizer
 
 class aufgabenDataset(Dataset):
     '''

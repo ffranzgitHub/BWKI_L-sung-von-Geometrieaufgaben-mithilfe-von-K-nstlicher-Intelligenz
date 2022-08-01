@@ -7,10 +7,10 @@ Arbeitstand genannt.
 - [x] Daten laden (Franz)
 - [x] Stemming einbauen (Levi)
 - [x] Daten umformattieren (Levi)
+- [x] wenn zu viele Worte in dem Text nicht erkannt werden wird die Aufgabe nicht akzeptiert (Franz)
 - Viele Aufgaben schreiben (Beide)
 - Preprocessing und Daten Laden verbinden
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen
-- Preprocessing Schritt: wenn zu viele Worte in dem Text nicht erkannt werden wird die Aufgabe nicht akzeptiert
 - Stopwörter
 
 
