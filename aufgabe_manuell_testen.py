@@ -5,7 +5,7 @@ from Daten_Laden.dataset import aufgabenDataset
 
 VECTORIZER_PATH = "gespeicherte_Klassen/vectorizer"
 
-GENZWERT_UNK_VERHÄLTNISS = 0.2
+GRENZWERT_UNK_VERHÄLTNISS = 0.2
 
 if __name__ == "__main__":
     vectorizer = aufgabenDataset.load_vectorizer_only(VECTORIZER_PATH)
@@ -18,7 +18,10 @@ if __name__ == "__main__":
     unk_number = vectorizer.count_unknown(aufgabe)
 
     verhältniss = unk_number / aufgabe_count
-    if verhältniss <= GENZWERT_UNK_VERHÄLTNISS:
-        print("akzeptiert: {} von {}".format(unk_number, aufgabe_count))
+    if verhältniss <= GRENZWERT_UNK_VERHÄLTNISS:
+        print("aktzeptiert: {} von {}".format(unk_number, aufgabe_count))
     else:
-        print("nicht akzeptiert: {} von {}".format(unk_number, aufgabe_count))
+        print("nicht aktzeptiert: {} von {}".format(unk_number, aufgabe_count))
+
+    # print(f"{'' if verhältniss <= GRENZWERT_UNK_VERHÄLTNISS else 'nicht '}aktzeptiert: {unk_number} von {aufgabe_count}")
+    # Das wäre eine etwas kürzere Alternative
