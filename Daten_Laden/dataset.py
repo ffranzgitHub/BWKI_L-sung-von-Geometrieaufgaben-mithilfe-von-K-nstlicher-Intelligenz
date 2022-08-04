@@ -114,6 +114,8 @@ class aufgabenDataset(Dataset):
         aufgabe_vector = \
             self._vectorizer.vectorize(row["Text"])
 
+        # es wird nur die, der Klasse zugewiesenen, Zahl zurückgegeben und nicht ein one-hot-encodeter 
+        # Vektor, da die Loss die Zahl (als Index für die Klasse) auch akzeptiert und selbst one-hot-encodet
         class_index = \
             self._vectorizer.class_vocab.lookup_token(row["Aufgabentyp"])
 
