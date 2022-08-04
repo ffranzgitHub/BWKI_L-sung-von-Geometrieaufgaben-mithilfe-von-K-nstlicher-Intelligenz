@@ -13,9 +13,11 @@ class AufgabenDetector(nn.Module):
         self.l2 = nn.Linear(hidden_size, hidden_size)
         self.l3 = nn.Linear(hidden_size, num_classes)
 
-        self.relu = nn.ReLu()
+        self.relu = nn.ReLU()
 
     def forward(self, x):
         out = self.relu(self.l1(x))
         out = self.relu(self.l2(out))
         out = self.l3(out) # Soft Max in Loss
+
+        return out
