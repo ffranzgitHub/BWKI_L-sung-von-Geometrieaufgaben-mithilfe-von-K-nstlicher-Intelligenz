@@ -7,5 +7,6 @@ globale_variablen = \
         "device": "cpu",
         "split ratio": (80, 10, 10),
         "cut_off": 0,
-        "path_to_saved_vectorizer": "gespeicherte_Klassen/vectorizer"
+        "path_to_saved_vectorizer": "gespeicherte_Klassen/vectorizer",
+        "batch_size": 1
     }

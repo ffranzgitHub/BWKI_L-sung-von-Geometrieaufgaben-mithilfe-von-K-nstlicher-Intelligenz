@@ -85,7 +85,7 @@ class aufgabenDataset(Dataset):
         with open(vectorizer_filepath, "w") as fp:
             json.dump(self._vectorizer.to_serializable(), fp)
 
-    def get_vectorizer(self):
+    def get_vectorizer(self) -> aufgabenVectorizer:
         """ returns the vectorizer """
         return self._vectorizer
 
