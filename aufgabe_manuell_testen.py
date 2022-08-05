@@ -1,9 +1,10 @@
 '''
 die Datei ist dafür da, Aufgaben manuell (also wie im echten Endprogramm) einzugeben
 '''
+from globale_Variablen import globale_variablen
 from Daten_Laden.dataset import aufgabenDataset
 
-VECTORIZER_PATH = "gespeicherte_Klassen/vectorizer"
+VECTORIZER_PATH = globale_variablen.get("path_to_saved_vectorizer")
 
 GRENZWERT_UNK_VERHÄLTNISS = 0.2
 
