@@ -5,7 +5,9 @@ globale_variablen = \
         "hidden_size": 256, 
         "num_epoches": 1,
         "device": "cpu",
-        "split ratio": (80, 10, 10),
+        "split_test": 0.1,
+        "split_val": 0.1,
+        "split_train": 0.8,
         "cut_off": 0,
         "path_to_saved_vectorizer": "gespeicherte_Klassen/vectorizer",
         "batch_size": 1
