@@ -17,9 +17,9 @@ Arbeitstand genannt.
 - Preprocessing und Daten Laden verbinden
 - Training verfeinern --> parameter anpassen etc. 
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen
+- __add_split erweitern
 - Projekt dokumentieren
 - Projekt einreichen am 11.09.2022
-- __add_split erweitern
 
 
 # Generelle Erkenntnisse

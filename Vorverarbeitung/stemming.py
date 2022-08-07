@@ -1,6 +1,7 @@
 import nltk
 from nltk.stem.porter import PorterStemmer
 import numpy as np
+from globale_Variablen import globale_variablen
 
 
 #nltk.download("punkt")
@@ -9,7 +10,7 @@ import numpy as np
 stemmer = PorterStemmer()
 
 def get_stopswords():
-    with open("Vorverarbeitung/german_stopwords.txt") as f:
+    with open(globale_variablen["path_to_stopwords"]) as f:
         stop_words = [line for line in f if not line.startswith(";")].extend(["!", "?", "°"])
     return stop_words
 
