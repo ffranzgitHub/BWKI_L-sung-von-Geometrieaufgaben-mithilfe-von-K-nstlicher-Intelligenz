@@ -77,17 +77,26 @@ def __add_split(data):
 
     print()
     
-    #TODO: weiter anpassen
     for datapoint in data:
-        pass
+        if train_classes_counters[datapoint["Aufgabentyp"]] > 0:
+            train_classes_counters[datapoint["Aufgabentyp"]] -= 1
+            datapoint["split"] = "train"
+
+        elif val_classes_counters[datapoint["Aufgabentyp"]] > 0:
+            val_classes_counters[datapoint["Aufgabentyp"]] -= 1
+            datapoint["split"] = "val"
+
+        elif test_classes_counters[datapoint["Aufgabentyp"]] > 0:
+            test_classes_counters[datapoint["Aufgabentyp"]] -= 1
+            datapoint["split"] = "test"
+
+        else:
+            print("ERROR")
+
+    print()   
 
 
-
-    # aufgabe -> Split zuweisen
-
-
-    #Verhältniss der Klassen in einem Split gleichhalten
-    # TODO: die Aufteilung muss ganz zufällig sein
+    # Verhältniss der Klassen in einem Split gleichhalten
     # TODO: Die Vehältnisse zwischen test/val/train müssen übergeben werden
     # Hyperparameter benutzen
 
@@ -106,3 +115,5 @@ if __name__=="__main__":
     data = [{"Text": f"t{i}" , "Aufgabentyp":f"a{random.randint(1,3)}"} for i in range(100)]
 
     __add_split(data)    
+
+    print()

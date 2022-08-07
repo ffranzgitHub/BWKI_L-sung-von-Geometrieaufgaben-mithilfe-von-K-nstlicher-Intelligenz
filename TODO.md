@@ -8,16 +8,16 @@ Arbeitstand genannt.
 - [x] Stemming einbauen (Levi)
 - [x] Daten umformattieren (Levi)
 - [x] wenn zu viele Worte in dem Text nicht erkannt werden wird die Aufgabe nicht akzeptiert (Franz)
-- Globalen Variablen/ Hyperparameter sammeln (Franz)
-- install.py schreiben (z.b. für initialle/einmalige Downloads) (Franz)
-- Basics vom Training (Levi)
-- Stopwörter (Levi)
+- [x] Basics vom Training (Levi)
+- [x] Stopwörter (Levi)
+- [x] Globalen Variablen/ Hyperparameter sammeln (Franz)
+- [x] __add_split erweitern
 - Viele Aufgaben schreiben (Beide)
+- install.py schreiben (z.b. für initialle/einmalige Downloads) (Franz)
 - Daten Laden selbt erstellen
 - Preprocessing und Daten Laden verbinden
 - Training verfeinern --> parameter anpassen etc. 
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen
-- __add_split erweitern
 - Projekt dokumentieren
 - Projekt einreichen am 11.09.2022
 

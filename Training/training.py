@@ -21,8 +21,10 @@ criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 model.train()
-print("Hallo")
     
+correct_counter = 0
+all_counter = 0
+
 for epoch_i in range(NUM_EPOCHS):
     batches = generate_batches(dataset, globale_variablen.get("batch_size"))
     for batch_i in batches: 
@@ -37,7 +39,16 @@ for epoch_i in range(NUM_EPOCHS):
 
         #3 Loss berechnen
         loss = criterion(output, y_target)
-        print(loss.item())
+        if epoch_i % 100 == 0:
+            out_idx = torch.argmax(output)
+            label_idx = y_target.item()
+
+            all_counter += 1
+            result = "Not correct"
+            if out_idx == label_idx:
+                correct_counter += 1
+                result = "Correct"
+            print(f"Loss: {loss.item()}     OUT: {out_idx}     LABEL: {label_idx}    CHECK: {result}")
 
         #4 Gradienten zurücksetzen
         optimizer.zero_grad()
@@ -48,3 +59,6 @@ for epoch_i in range(NUM_EPOCHS):
         #6 Optimisieren
         optimizer.step()
 
+
+
+print(f"{correct_counter}/{all_counter} sind richtig --> {correct_counter/all_counter*100}%")
