@@ -11,5 +11,7 @@ globale_variablen = \
         "cut_off": 0,
         "path_to_saved_vectorizer": "gespeicherte_Klassen/vectorizer",
         "batch_size": 1,
-        "path_to_stopwords" : "Vorverarbeitung/german_stopwords.txt"
+        "path_to_stopwords" : "Vorverarbeitung/german_stopwords.txt",
+        "learning_rate": 0.01,
+        "unk_threashold_percentage": 0.2,
     }

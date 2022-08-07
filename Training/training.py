@@ -12,7 +12,7 @@ dataset = create_dataset()
 input_size = len(dataset.get_vectorizer().aufgabe_vocab) 
 hidden_size = globale_variablen.get("hidden_size")
 num_classes = len(dataset.get_vectorizer().class_vocab) 
-learning_rate = 0.01
+learning_rate = globale_variablen.get("learning_rate")
 
 NUM_EPOCHS = globale_variablen.get("num_epoches")
 
@@ -22,8 +22,8 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 model.train()
     
-correct_counter = 0
-all_counter = 0
+correct_counter = 0 #?
+all_counter = 0     #?
 
 for epoch_i in range(NUM_EPOCHS):
     batches = generate_batches(dataset, globale_variablen.get("batch_size"))
@@ -39,6 +39,8 @@ for epoch_i in range(NUM_EPOCHS):
 
         #3 Loss berechnen
         loss = criterion(output, y_target)
+
+        #TODO: print in eine seperate Funktion auslagern?
         if epoch_i % 100 == 0:
             out_idx = torch.argmax(output)
             label_idx = y_target.item()
