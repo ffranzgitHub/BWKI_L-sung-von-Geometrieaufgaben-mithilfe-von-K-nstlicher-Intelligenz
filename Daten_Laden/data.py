@@ -4,33 +4,25 @@ import json
 from Daten_Laden.dataset import aufgabenDataset
 import random
 
-def __add_split(data):
-    '''die Funktion fügt jedem Datenpunkt einem Split (train/val/test) hinzu
-    Args:
-        data: (Json List,dic) 
-    '''
-    n = len(data)
-    # The split must be random and include all classes equaly in all parts
-    sorted_data = {} # sorted_data erstellen mit {"Aufgabentpy1": ["text1", "text2"], "Aufgabentyp2", [text3, text4]}
-    classes = unique([d.get("Aufgabentyp") for d in data])
-    for typ in classes:
-        sorted_data[typ] = []
-    for datenpunkt in data:
-        sorted_data[datenpunkt["Aufgabentyp"]].append(datenpunkt["Text"])
-    #zufällig
-    for liste in sorted_data.values():
-        random.shuffle(liste)
 
+def __verhaeltnisse_berechnen(sorted_data):
+    '''rechnet aus den Verhältnissen der Splits und der Anzahl der Elemente in einer Klasse die konkrete Aufteilung aus'''
+    gesammtlaenge = 0
+    for array in sorted_data.values(): gesammtlaenge += len(array)  #Gesammtlänge der Daten
+
+    #Split Verhältnisse(p) zu Anzahlen(n)
 
     # Verhältniss bei ungeraden Zahlen -> test und val werden aufgerundet, train nimmt den Rest
     test_n = round(len(data)*globale_variablen.get("split_test")+0.5) #rundet immer auf
     val_n = round(len(data)*globale_variablen.get("split_val")+0.5)
-    train_n = n-test_n-val_n   #nimmt den Rest
+    train_n = gesammtlaenge-test_n-val_n   #nimmt den Rest
+
+    # Anzahl(n) der Elemente der Klassen aus den Verhältnissen(p) in den Splits berechen
 
     n_classen = []
-    for _, class_list in sorted_data.items():
+    for _, class_list in sorted_data.items():   #Verhältnisse der Klassen berechnen
         n_classen.append(len(class_list))
-    p_classen = [n_classe/n for n_classe in n_classen]
+    p_classen = [n_classe/gesammtlaenge for n_classe in n_classen]
 
     #Anzahl der Elemente von den Klassen in den Splits
     #für alle train
@@ -53,11 +45,20 @@ def __add_split(data):
             test_n_classen.append(1)
             n_train -= 1
 
+def __add_split(data):
+    '''die Funktion fügt jedem Datenpunkt einem Split (train/val/test) hinzu
+    Args:
+        data: (Json List,dic) 
+    '''
+    # The split must be random and include all classes equaly in all parts
+    sorted_data = dict.fromkeys(unique([d.get("Aufgabentyp") for d in data]), []) # sorted_data erstellen mit {"Aufgabentpy1": ["text1", "text2"], "Aufgabentyp2", [text3, text4]}
+    for datenpunkt in data:
+        sorted_data[datenpunkt["Aufgabentyp"]].append(datenpunkt["Text"])
+    
+    [random.shuffle(liste) for liste in sorted_data.values()]   #zufällig
 
-
-
-
-
+    __verhaeltnisse_berechnen()
+    #TODO: weiter anpassen
     #Verhältniss der Klassen in einem Split gleichhalten
 '''
     for dic in data[:18]:
@@ -80,3 +81,14 @@ def create_dataset():
     dataset = aufgabenDataset.load_dataset_and_make_vectorizer(json_data)
 
     return dataset
+
+
+if __name__=="__main__":
+    data = \
+        {
+            "k1": [0, 1, 2],
+            "k2": [3, 4, 5, 6],
+            "k3": [7, 8]
+        }
+    
+    __verhaeltnisse_berechnen(data)
