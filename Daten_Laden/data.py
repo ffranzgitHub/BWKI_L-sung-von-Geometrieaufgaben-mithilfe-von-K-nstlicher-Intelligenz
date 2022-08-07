@@ -48,8 +48,8 @@ def __klassenanzahl_in_split(sorted_data:dict):
             test_n_classes[aufgabentyp] = 1
             n_train -= 1
 
-    # Warum Test den Rest bekommt und wir nicht einfach Runden:
     """
+    Warum Test den Rest bekommt und wir nicht einfach Runden:
     Datenverlust: 
     0.33 * 10 = 3
     0.33 * 10 = 3
@@ -71,11 +71,10 @@ def __add_split(data):
             sorted_data[datenpunkt["Aufgabentyp"]] = []
         sorted_data[datenpunkt["Aufgabentyp"]].append(datenpunkt["Text"])
     
+    #TODO: random shuffle wird nicht benutzt (weil nur gezählt wird), eigentlich sollte data geshuffelt werden
     [random.shuffle(liste) for liste in sorted_data.values()]   #zufällig
 
     train_classes_counters, val_classes_counters, test_classes_counters = __klassenanzahl_in_split(sorted_data)
-
-    print()
     
     for datapoint in data:
         if train_classes_counters[datapoint["Aufgabentyp"]] > 0:
@@ -91,14 +90,11 @@ def __add_split(data):
             datapoint["split"] = "test"
 
         else:
+            #TODO: richtigen Error Raisen
             print("ERROR")
-
-    print()   
-
 
     # Verhältniss der Klassen in einem Split gleichhalten
     # TODO: Die Vehältnisse zwischen test/val/train müssen übergeben werden
-    # Hyperparameter benutzen
 
 def create_dataset():
     PATH = globale_variablen.get("path_to_data")
