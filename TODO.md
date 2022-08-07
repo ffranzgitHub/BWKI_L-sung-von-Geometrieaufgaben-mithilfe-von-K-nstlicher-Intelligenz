@@ -17,9 +17,13 @@ Arbeitstand genannt.
 - Preprocessing und Daten Laden verbinden
 - Training verfeinern --> parameter anpassen etc. 
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen
+- Projekt dokumentieren
+- Projekt einreichen am 11.09.2022
+- __add_split erweitern
 
 
 # Generelle Erkenntnisse
 - zu wenige Daten
 - NER kann uns bei der Auswahl der richtigen Parameter/Größen für die Funktion helfen
 - KNN oder Vektorähnlichkeit für die Bestimmung der Funktion/des Aufgabentypen
+
