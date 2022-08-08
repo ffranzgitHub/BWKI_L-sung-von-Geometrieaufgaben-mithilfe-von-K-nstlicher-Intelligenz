@@ -17,7 +17,7 @@ GRENZWERT_UNK_VERHÄLTNISS = globale_variablen.get("unk_threashold_percentage")
 if __name__ == "__main__":
     vectorizer = aufgabenDataset.load_vectorizer_only(VECTORIZER_PATH)
     # input("gib die Aufgabe ein: ")
-    aufgabe = "Ein rechtwinkliges Dreieck hat die Katheten a=3cm und die Hypothenuse c=5cm Berechne die fehlende Kathete"
+    aufgabe = "Ein rechtwinkliges Dreieck hat die Katheten a=69cm und b=45cm und c=30cm Berechne die fehlende Kathete"
 
     angepasster_satz, entities = named_entities(aufgabe)
 
