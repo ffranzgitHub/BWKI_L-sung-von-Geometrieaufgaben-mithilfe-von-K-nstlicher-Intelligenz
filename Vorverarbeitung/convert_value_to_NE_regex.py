@@ -11,6 +11,15 @@ herunterzubrechen, um vom NLP Verfahren wie BoW nicht als verschiedene Worte erk
 import re
 
 
+unit_to_cm = \
+    {
+        "km": 100_000,
+        "m": 100,
+        "dm": 10,
+        "cm": 1,
+        "mm": 0.1
+    }
+
 class ConvertmitVariable():
     '''
     die Klasse ist eine Hilfsklasse welche die Hilfsfunktion convert enthält. Die Klasse ist dabei
@@ -19,7 +28,7 @@ class ConvertmitVariable():
 
     '''
     def __init__(self):
-        self.named_entitys = []
+        self.named_entities = []
         self.string = ""
     
 
@@ -32,13 +41,19 @@ class ConvertmitVariable():
         named_entity_name = match_obj.group(1)
         named_entity_value = match_obj.group(3) # .group(2) wäre das istgleich
 
+        named_entity_value = re.sub("\d+|\D+", self.convert_units, string=named_entity_value)
+
         named_entity = [named_entity_name, named_entity_value]  # Name und Werte der Variablenzuweisung werden gespeichert
 
         string = '<Variablenzuweisung>' # alle konkret unterschiedlichen Variablenzuweisungen werden hier zu einer gleichen Vokabel
 
-        self.named_entitys += [named_entity]
+        self.named_entities += [named_entity]
 
         return string
+
+    def convert_units(self, match_obj):
+        named_entity_value = match_obj.group(1)
+        named_entity_unit = match_obj.group(2)
 
 
 #string1= ''' a = 10; b  =  20'''
@@ -65,7 +80,8 @@ def named_entities(aufgabe:str):
 
     #print('\nnamed entitys:\n'+str(cmv.named_entitys))
 
-    return angepasster_string, cmv.named_entitys
+    return angepasster_string, cmv.named_entities
+    
 
 
 if __name__ == "__main__":

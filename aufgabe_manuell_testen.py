@@ -12,7 +12,7 @@ import torch
 
 VECTORIZER_PATH = globale_variablen.get("path_to_saved_vectorizer")
 
-GRENZWERT_UNK_VERHÄLTNISS = 0.2
+GRENZWERT_UNK_VERHÄLTNISS = 0.25
 
 if __name__ == "__main__":
     vectorizer = aufgabenDataset.load_vectorizer_only(VECTORIZER_PATH)

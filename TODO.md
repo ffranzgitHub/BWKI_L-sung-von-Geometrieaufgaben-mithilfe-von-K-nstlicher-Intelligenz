@@ -14,6 +14,7 @@ Arbeitstand genannt.
 - [x] __add_split erweitern (Levi)
 - [x] Model nach training speichern und dann laden (Levi)
 - install.py schreiben (z.b. für initialle/einmalige Downloads) (Franz)
+- Nicht mehr benötigte Dateien löschen (z.B. regex_istgleich_angleichen.py, prepare-data.py)
 - Umgang mit Einheiten wie cm, m, km usw.
 - Die Bestimmung der Anzahl unbekannter Wörter mehr verallgemeinern (nichr auf Groß-Klein Schreibung Achten, Zahlen nicht einbeziehen usw.)
 - Viele Aufgaben schreiben (Beide)
