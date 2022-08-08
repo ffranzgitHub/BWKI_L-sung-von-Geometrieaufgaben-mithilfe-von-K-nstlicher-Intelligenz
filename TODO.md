@@ -14,12 +14,14 @@ Arbeitstand genannt.
 - [x] __add_split erweitern (Levi)
 - [x] Model nach training speichern und dann laden (Levi)
 - install.py schreiben (z.b. für initialle/einmalige Downloads) (Franz)
+- Umgang mit Einheiten wie cm, m, km usw.
 - Die Bestimmung der Anzahl unbekannter Wörter mehr verallgemeinern (nichr auf Groß-Klein Schreibung Achten, Zahlen nicht einbeziehen usw.)
 - Viele Aufgaben schreiben (Beide)
 - Daten Laden selbt erstellen
 - Preprocessing und Daten Laden verbinden
 - Training verfeinern --> parameter anpassen etc. 
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen
+- Dreiecke und andere Grafische Objekte Ausgeben
 - Projekt dokumentieren
 - Projekt einreichen am 11.09.2022
 

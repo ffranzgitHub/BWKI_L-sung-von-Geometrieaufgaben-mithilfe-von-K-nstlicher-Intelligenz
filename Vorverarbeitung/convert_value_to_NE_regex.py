@@ -61,9 +61,11 @@ def named_entities(aufgabe:str):
     cmv = ConvertmitVariable()
 
     angepasster_string = re.sub('(\d+,\d+|\w+|\?+) *(=|ist gleich|gleich|:|mit dem Wert|entspricht) *(\?+|\d+,\d+|\w+)', cmv.convert, aufgabe)
-    print('\n'+angepasster_string)
+    #print('\n'+angepasster_string)
 
-    print('\nnamed entitys:\n'+str(cmv.named_entitys))
+    #print('\nnamed entitys:\n'+str(cmv.named_entitys))
+
+    return angepasster_string, cmv.named_entitys
 
 
 if __name__ == "__main__":

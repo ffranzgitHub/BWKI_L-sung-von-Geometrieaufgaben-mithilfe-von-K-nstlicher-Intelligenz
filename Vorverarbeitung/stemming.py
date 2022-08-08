@@ -30,6 +30,7 @@ def bag_of_words(tokenized_sentence, all_words, performe_stem=True, filter_stop_
     return np.array([1.0 if word in tokenized_sentence else 0.0 for word in all_words], dtype=np.float32)
 
 def ignore_stop_words(word_list):
+    # Diese Liste beinhaltet auch "<Variablenzuweisung>"
     stop_words = get_stopwords()
     word_list = [word for word in word_list if word not in stop_words]
     return word_list
