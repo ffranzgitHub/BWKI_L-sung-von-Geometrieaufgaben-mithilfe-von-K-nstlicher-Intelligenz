@@ -75,14 +75,14 @@ def named_entities(aufgabe: str):
     # print('\n'+angepasster_string)
     # print('\nnamed entitys:\n'+str(cmv.named_entitys))
 
-    entities = [[entity[0], float(entity[1]) * unit_to_cm[unit]]
+    entities = [[entity[0], float(entity[1]) * unit_to_cm.get(unit, 1)]
                 for entity, unit in zip(cmv.named_entities, cmv.units)]
 
     return angepasster_string, entities
 
 
 if __name__ == "__main__":
-    named_entities("Ein Dreieck hat die Hypotenuse a : 10cm und b = 20m")
+    named_entities("Ein Dreieck hat die Hypotenuse a : 10 und b = 20")
 
 #string1= ''' a = 10; b  =  20'''
 #string2= ''' a = 10; b  =  20; 10=c; 200= a'''
