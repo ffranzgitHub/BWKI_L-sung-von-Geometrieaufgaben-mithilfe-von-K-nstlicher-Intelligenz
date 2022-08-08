@@ -1,3 +1,6 @@
 launch.json
 settings.json
 __pycache__/
+
+/test_codesnippets/test.py
+test_global.py
