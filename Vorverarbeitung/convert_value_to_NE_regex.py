@@ -15,7 +15,7 @@ unit_to_cm = \
         "m": 100,
         "dm": 10,
         "cm": 1,
-        "mm": 0.1
+        "mm": 0.1,
     }
 
 
@@ -48,14 +48,20 @@ class ConvertmitVariable():
         named_entity = [named_entity_name, named_entity_value]
 
         # alle konkret unterschiedlichen Variablenzuweisungen werden hier zu einer gleichen Vokabel
-        string = '<Variablenzuweisung>'
+        if named_entity_value != "?":
+            string = '<Variablenzuweisung>'
+        else:
+            string = "<Unbekannte Variable>"
 
         self.named_entities += [named_entity]
 
         return string
 
+    # TODO Namen der Funktion ändern
+    # TODO Wenn keine Einheit angegeben wird, wird diese Funktion anscheinend nicht korrekt aufgerufen. Dagegen müssen wir etwas tun
     def convert_units(self, match_obj):
         named_entity_number = match_obj.group(1)
+
         named_entity_unit = match_obj.group(2)
         self.units.append(named_entity_unit)
 
@@ -75,14 +81,16 @@ def named_entities(aufgabe: str):
     # print('\n'+angepasster_string)
     # print('\nnamed entitys:\n'+str(cmv.named_entitys))
 
-    entities = [[entity[0], float(entity[1]) * unit_to_cm.get(unit, 1)]
+    entities = [[entity[0], float(entity[1]) * unit_to_cm.get(unit, 1)] 
+                if entity[1]!="?" else [entity[0], entity[1]]
                 for entity, unit in zip(cmv.named_entities, cmv.units)]
 
     return angepasster_string, entities
 
 
 if __name__ == "__main__":
-    named_entities("Ein Dreieck hat die Hypotenuse a : 10 und b = 20")
+    angepasster_string, entities = named_entities("Ein Dreieck hat die Hypotenuse a : 10cm und b = 20cm")
+    print()
 
 #string1= ''' a = 10; b  =  20'''
 #string2= ''' a = 10; b  =  20; 10=c; 200= a'''

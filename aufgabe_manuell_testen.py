@@ -4,7 +4,7 @@ die Datei ist dafür da, Aufgaben manuell (also wie im echten Endprogramm) einzu
 from globale_Variablen import globale_variablen
 from Daten_Laden.dataset import aufgabenDataset
 from Netz.model import AufgabenDetector
-from Daten_Laden.data import create_dataset
+from Daten_Laden.data import vorverarbeitung_und_dataset
 from Vorverarbeitung.stemming import bag_of_words, tokenize
 from Vorverarbeitung.convert_value_to_NE_regex import named_entities
 from Loesen_Der_Aufgaben.loesen import pythagoras
@@ -17,12 +17,14 @@ GRENZWERT_UNK_VERHÄLTNISS = globale_variablen.get("unk_threashold_percentage")
 if __name__ == "__main__":
     vectorizer = aufgabenDataset.load_vectorizer_only(VECTORIZER_PATH)
     # input("gib die Aufgabe ein: ")
-    aufgabe = "Ein rechtwinkliges Dreieck hat die Katheten a=3cm und b=4cm Berechne die Hypothenuse"
+    aufgabe = "Ein rechtwinkliges Dreieck hat die Katheten a=3cm und die Hypothenuse c=5cm Berechne die fehlende Kathete"
+
+    angepasster_satz, entities = named_entities(aufgabe)
 
     # zähle Gesammttokenanzahl der Aufgabe
-    tokens = aufgabe.split(" ")
+    tokens = angepasster_satz.split(" ")
     aufgabe_count = len(tokens)
-    unk_number = vectorizer.count_unknown(aufgabe)
+    unk_number = vectorizer.count_unknown(angepasster_satz)
 
     verhältniss = unk_number / aufgabe_count
     if verhältniss <= GRENZWERT_UNK_VERHÄLTNISS:
@@ -36,7 +38,7 @@ if __name__ == "__main__":
     # Dass zu viele Wörter unbekannt sind
     # Vielleicht sollten wir alle Wörter lowern?
 
-    dataset = create_dataset()
+    dataset = vorverarbeitung_und_dataset()
     all_words = [word for word in dataset.get_vectorizer(
     ).aufgabe_vocab._idx_to_token.values()]
     # Diese Iteration wird benötigt um aus Dict_Values([1, 2, 3]) --> [1, 2, 3] zu machen
@@ -50,9 +52,9 @@ if __name__ == "__main__":
     model.load_state_dict(torch.load(globale_variablen["path_to_model"]))
     model.eval()
 
-    angepasster_satz, entities = named_entities(aufgabe)
+    
     entities = dict(entities)
-    input_x = tokenize(aufgabe)
+    input_x = tokenize(angepasster_satz)
     input_x = bag_of_words(
         input_x, all_words, performe_stem=False, filter_stop_words=False)
     input_x = torch.tensor(input_x)

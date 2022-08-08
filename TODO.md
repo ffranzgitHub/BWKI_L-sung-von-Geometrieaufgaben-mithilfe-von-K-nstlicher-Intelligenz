@@ -20,6 +20,7 @@ Arbeitstand genannt.
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen (Levi)
 - Die Bestimmung der Anzahl unbekannter Wörter mehr verallgemeinern (nichr auf Groß-Klein Schreibung Achten, Zahlen nicht einbeziehen usw.)
 - Sonderzeichen entfernen
+- Regex Anpassen (Kein unit angegeben, und Kommazahlen)
 - Viele Aufgaben schreiben (Beide)
 - Daten Laden selbt erstellen
 - Preprocessing und Daten Laden verbinden

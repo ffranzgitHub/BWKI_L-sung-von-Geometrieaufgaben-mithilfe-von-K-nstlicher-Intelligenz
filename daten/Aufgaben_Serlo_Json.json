@@ -25,7 +25,7 @@
         "Ja-Nein Frage": true
     },
     {
-        "Text": "Ein Rechtwinkliges Dreieck hat den Winkel A=90\u00c2\u00b0, B ist gleich=?, C=? und die Katheten a=3cm und b=4cm. Ist dieses Dreieck kongruent?",
+        "Text": "Ein Rechtwinkliges Dreieck hat den Winkel A=90\u00c2\u00b0, B ist gleich ?, C=? und die Katheten a=3cm und b=4cm. Ist dieses Dreieck kongruent?",
         "Aufgabentyp": "Kongruenz von Dreiecken",
         "Ja-Nein Frage": true
     },
@@ -140,7 +140,7 @@
         "Ja-Nein Frage": false
     },
     {
-        "Text": "Bei einem Rechtwinkligem Dreieck gilt, dass a² + b² = c². Wenn man nun eine Kathete a=3cm hat und eine weitere Kathete b=5cm, wie lang ist dann c?",
+        "Text": "Bei einem Rechtwinkligem Dreieck gilt der Satz des Pythagoras. Wenn man nun eine Kathete a=3cm hat und eine weitere Kathete b=5cm, wie lang ist dann c?",
         "Aufgabentyp": "Satz des Pythagoras",
         "Ja-Nein Frage": false
     },
