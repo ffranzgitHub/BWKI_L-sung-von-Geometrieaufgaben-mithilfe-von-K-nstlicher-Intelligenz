@@ -2,7 +2,7 @@
 globale_variablen = \
     {
         "path_to_data": "daten/Aufgaben_Serlo_Json.json",
-        "hidden_size": 256, 
+        "hidden_size": 256,
         "num_epoches": 100,
         "device": "cpu",
         "split_test": 0.1,
@@ -11,8 +11,8 @@ globale_variablen = \
         "cut_off": 0,
         "path_to_saved_vectorizer": "gespeicherte_Klassen/vectorizer",
         "batch_size": 1,
-        "path_to_stopwords" : "daten/german_stopwords.txt",
+        "path_to_stopwords": "daten/german_stopwords.txt",
         "learning_rate": 0.01,
         "unk_threashold_percentage": 0.2,
-        "path_to_model": "daten/model.pt"
+        "path_to_model": "gespeicherte_Klassen/model.pt"
     }

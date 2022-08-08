@@ -1,17 +1,17 @@
 from globale_Variablen import globale_variablen
 from Netz.model import AufgabenDetector
 from Daten_Laden.text_to_minibatches import generate_batches
-from Daten_Laden.data import create_dataset
+from Daten_Laden.data import vorverarbeitung_und_dataset
 import torch.nn as nn
 import torch
 
+# Preprocessing und Dataset
+dataset = vorverarbeitung_und_dataset()
 
-dataset = create_dataset()
 
-#[x] TODO: Länge des one-hot-encodeten Vectors -> len(Vocabulary)
-input_size = len(dataset.get_vectorizer().aufgabe_vocab) 
+input_size = len(dataset.get_vectorizer().aufgabe_vocab)
 hidden_size = globale_variablen.get("hidden_size")
-num_classes = len(dataset.get_vectorizer().class_vocab) 
+num_classes = len(dataset.get_vectorizer().class_vocab)
 learning_rate = globale_variablen.get("learning_rate")
 
 NUM_EPOCHS = globale_variablen.get("num_epoches")
@@ -21,28 +21,28 @@ criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 model.train()
-    
-correct_counter = 0 # Zählt die Batches, die korrekt bestimmt wurden
+
+correct_counter = 0  # Zählt die Batches, die korrekt bestimmt wurden
 all_counter = 0     # Zählt die Batches, getestet wurden
-# Zusammen wird mit diesen Variablen am Ende geguckt, wie viel Prozent der Traings Batche das Netz 
+# Zusammen wird mit diesen Variablen am Ende geguckt, wie viel Prozent der Traings Batche das Netz
 # korrekt im letzen Durchlauf bestimmen konnte
 
 for epoch_i in range(NUM_EPOCHS):
     batches = generate_batches(dataset, globale_variablen.get("batch_size"))
-    for batch_i in batches: 
-        #TODO: Trainingsloop vervollständigen
-        
-        #1 Daten laden  
+    for batch_i in batches:
+        # TODO: Trainingsloop vervollständigen
+
+        # 1 Daten laden
         x_data = batch_i["x_data"]
         y_target = batch_i["y_target"]
 
-        #2 output berechnen (Forwardpass durchs Netz)
-        output = model(x_data)   #TODO: output zu Klassenindizes(int) casten
+        # 2 output berechnen (Forwardpass durchs Netz)
+        output = model(x_data)
 
-        #3 Loss berechnen
+        # 3 Loss berechnen
         loss = criterion(output, y_target)
 
-        #TODO: print in eine seperate Funktion auslagern?
+        # TODO: print in eine seperate Funktion auslagern?
         if epoch_i % 100 == 0:
             out_idx = torch.argmax(output)
             label_idx = y_target.item()
@@ -52,17 +52,17 @@ for epoch_i in range(NUM_EPOCHS):
             if out_idx == label_idx:
                 correct_counter += 1
                 result = "Correct"
-            print(f"Loss: {loss.item()}     OUT: {out_idx}     LABEL: {label_idx}    CHECK: {result}")
+            print(
+                f"Loss: {loss.item()}     OUT: {out_idx}     LABEL: {label_idx}    CHECK: {result}")
 
-        #4 Gradienten zurücksetzen
+        # 4 Gradienten zurücksetzen
         optimizer.zero_grad()
 
-        #5 Gradienten berechnen (Backward pass)
+        # 5 Gradienten berechnen (Backward pass)
         loss.backward()
 
-        #6 Optimisieren
+        # 6 Optimisieren
         optimizer.step()
-
 
 
 print(f"{correct_counter}/{all_counter} sind richtig --> {correct_counter/all_counter*100}%")
