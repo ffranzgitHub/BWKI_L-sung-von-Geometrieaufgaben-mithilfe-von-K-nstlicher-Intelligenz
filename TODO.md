@@ -2,8 +2,8 @@
 In dieser Datei werden alle ToDos für das Projekt aufgelistet sowie Release Dates und weitere Informationen zum aktuellen
 Arbeitstand genannt.
 
-- [x] Erste grobe Form des Netzes
-- [x] regex für "ist gleich" und andere erweitern
+- [x] Erste grobe Form des Netzes (Levi)
+- [x] regex für "ist gleich" und andere erweitern (Franz)
 - [x] Daten laden (Franz)
 - [x] Stemming einbauen (Levi)
 - [x] Daten umformattieren (Levi)
@@ -11,9 +11,11 @@ Arbeitstand genannt.
 - [x] Basics vom Training (Levi)
 - [x] Stopwörter (Levi)
 - [x] Globalen Variablen/ Hyperparameter sammeln (Franz)
-- [x] __add_split erweitern
-- Viele Aufgaben schreiben (Beide)
+- [x] __add_split erweitern (Levi)
+- [x] Model nach training speichern und dann laden (Levi)
 - install.py schreiben (z.b. für initialle/einmalige Downloads) (Franz)
+- Die Bestimmung der Anzahl unbekannter Wörter mehr verallgemeinern (nichr auf Groß-Klein Schreibung Achten, Zahlen nicht einbeziehen usw.)
+- Viele Aufgaben schreiben (Beide)
 - Daten Laden selbt erstellen
 - Preprocessing und Daten Laden verbinden
 - Training verfeinern --> parameter anpassen etc. 

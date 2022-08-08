@@ -22,8 +22,10 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 model.train()
     
-correct_counter = 0 #?
-all_counter = 0     #?
+correct_counter = 0 # Zählt die Batches, die korrekt bestimmt wurden
+all_counter = 0     # Zählt die Batches, getestet wurden
+# Zusammen wird mit diesen Variablen am Ende geguckt, wie viel Prozent der Traings Batche das Netz 
+# korrekt im letzen Durchlauf bestimmen konnte
 
 for epoch_i in range(NUM_EPOCHS):
     batches = generate_batches(dataset, globale_variablen.get("batch_size"))
@@ -64,3 +66,5 @@ for epoch_i in range(NUM_EPOCHS):
 
 
 print(f"{correct_counter}/{all_counter} sind richtig --> {correct_counter/all_counter*100}%")
+
+torch.save(model.state_dict(), globale_variablen["path_to_model"])
