@@ -8,14 +8,14 @@ herunterzubrechen, um vom NLP Verfahren wie BoW nicht als verschiedene Worte erk
 '''
 import re
 
-
+# TODO: Reinfolge mm -> m wichtig für regex, kann man das unabhängig machen
 unit_to_cm = \
     {
+        "mm": 0.1,
         "km": 100_000,
         "m": 100,
         "dm": 10,
         "cm": 1,
-        "mm": 0.1,
     }
 
 
@@ -37,15 +37,17 @@ class ConvertmitVariable():
         convert ist eine Hilfsfunktion, die bei einem Treffer der Regex aufgerufen wird
         Der zurückgegebene string ersetzt den gemachten Teil
         '''
-        # TODO: named_entity_name nimmt immer das erste Element. Aber was ist, wenn der Name nach dem "=" kommt z.b: 3=a
         named_entity_name = match_obj.group(1)
         named_entity_value = match_obj.group(3)  # .group(2) wäre das istgleich
+        # Änderung: Gruppe 4 enthält die Einheit
+        named_entity_unit = match_obj.group(4)  # None wenn nicht gefunden
 
-        named_entity_value = re.sub(
-            "(\d+)(\D+)", self.convert_units, named_entity_value)  # TODO: auch float erkennen
-
-        # Name und Werte der Variablenzuweisung werden gespeichert
-        named_entity = [named_entity_name, named_entity_value]
+        if named_entity_value != "?":
+            # Änderung: Auflösung der Einheiten findet hier statt
+            named_entity = [named_entity_name, float(named_entity_value)*unit_to_cm.get(named_entity_unit, 1)]
+        else:
+            # TODO: Einheiten handling bei ? implementieren
+            named_entity = [named_entity_name, named_entity_value]
 
         # alle konkret unterschiedlichen Variablenzuweisungen werden hier zu einer gleichen Vokabel
         if named_entity_value != "?":
@@ -57,39 +59,28 @@ class ConvertmitVariable():
 
         return string
 
-    # TODO Namen der Funktion ändern
-    # TODO Wenn keine Einheit angegeben wird, wird diese Funktion anscheinend nicht korrekt aufgerufen. Dagegen müssen wir etwas tun
-    def convert_units(self, match_obj):
-        named_entity_number = match_obj.group(1)
+#Änderung: zweite regex Funktion weggelassen
 
-        named_entity_unit = match_obj.group(2)
-        self.units.append(named_entity_unit)
-
-        return named_entity_number
-
-
-#beispiel_aufgabe= "Katheten: a=5cm und b   =   8cm Berechne die Hypothenuse"
-
-
-# Der Coding Style hier ist sehr schlecht von mir. Wollte nur was testen
-def named_entities(aufgabe: str):
+def variablenzuweisung_extrahieren(aufgabe: str):
     cmv = ConvertmitVariable()
+    # Änderung: nur noch Formate, in denen die Variable links steht werden akzeptiert
+    # Änderungen: die Einheit wird direkt hier erkannt und es ist kein neuer .sub() in einer neuen Funktion nötig
+    # Änderungen: die Erkannten einheiten passen sich an die unterstützen Einheiten in unit_to_cm an
+    eh = '('
+    for i, e in enumerate(unit_to_cm.keys()):
+        if i == 0:
+            eh += e
+        else:
+            eh += "|"+e
+    eh += ")?"
+    angepasster_string = re.sub('([a-zA-Z]+\d*|\?+) *(=|ist gleich|gleich|:|mit dem Wert|entspricht) *(\?+|\d+,\d+|\d+) *' + eh, cmv.convert, aufgabe)
 
-    angepasster_string = re.sub(
-        '(\d+,\d+|\w+|\?+) *(=|ist gleich|gleich|:|mit dem Wert|entspricht) *(\?+|\d+,\d+|\w+)', cmv.convert, aufgabe)
-
-    # print('\n'+angepasster_string)
-    # print('\nnamed entitys:\n'+str(cmv.named_entitys))
-
-    entities = [[entity[0], float(entity[1]) * unit_to_cm.get(unit, 1)] 
-                if entity[1]!="?" else [entity[0], entity[1]]
-                for entity, unit in zip(cmv.named_entities, cmv.units)]
-
-    return angepasster_string, entities
+    return angepasster_string, cmv.named_entities
 
 
 if __name__ == "__main__":
-    angepasster_string, entities = named_entities("Ein Dreieck hat die Hypotenuse a : 10cm und b = 20cm")
+    angepasster_string, entities = variablenzuweisung_extrahieren(
+        "Ein Dreieck hat die Hypotenuse a : 10km und b = 20mm")
     print()
 
 #string1= ''' a = 10; b  =  20'''
