@@ -7,7 +7,6 @@
 ; ####
 ; Link-Ware; If you use this List somehow please give me a Link to URL mentioned above! Thanks
 ; ####
-<Variablenzuweisung>
 ab
 aber
 abermaliges

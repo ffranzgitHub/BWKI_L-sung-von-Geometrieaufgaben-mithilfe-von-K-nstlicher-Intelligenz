@@ -42,7 +42,7 @@ class ConvertmitVariable():
         named_entity_value = match_obj.group(3)  # .group(2) wäre das istgleich
 
         named_entity_value = re.sub(
-            "(\d+)(\D+)", self.convert_units, named_entity_value)  # TODO: auch float erkennen
+            "(\d+)(\D+)", self.append_units, named_entity_value)  # TODO: auch float erkennen
 
         # Name und Werte der Variablenzuweisung werden gespeichert
         named_entity = [named_entity_name, named_entity_value]
@@ -51,7 +51,7 @@ class ConvertmitVariable():
         if named_entity_value != "?":
             string = '<Variablenzuweisung>'
         else:
-            string = "<Unbekannte Variable>"
+            string = "<Unbekannte_Variable>"
 
         self.named_entities += [named_entity]
 
@@ -59,7 +59,7 @@ class ConvertmitVariable():
 
     # TODO Namen der Funktion ändern
     # TODO Wenn keine Einheit angegeben wird, wird diese Funktion anscheinend nicht korrekt aufgerufen. Dagegen müssen wir etwas tun
-    def convert_units(self, match_obj):
+    def append_units(self, match_obj):
         named_entity_number = match_obj.group(1)
 
         named_entity_unit = match_obj.group(2)

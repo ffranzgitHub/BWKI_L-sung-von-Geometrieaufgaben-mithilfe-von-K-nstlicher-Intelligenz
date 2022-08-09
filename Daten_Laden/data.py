@@ -17,6 +17,7 @@ else:
     from Daten_Laden.dataset import aufgabenDataset
     import random
     from Vorverarbeitung.convert_value_to_NE_regex import named_entities
+    from Vorverarbeitung.stemming import stem, ignore_stop_words, tokenize
 
 
 def __klassenanzahl_in_split(sorted_data: dict):
@@ -118,6 +119,12 @@ def vorverarbeitung_und_dataset():
 
     for aufgaben_dic in json_data:
         aufgaben_dic["Text"], _ = named_entities(aufgaben_dic["Text"])
+
+        aufgaben_dic_text_liste = aufgaben_dic["Text"].split(" ")
+        aufgaben_dic_text_liste = [stem(word) for word in aufgaben_dic_text_liste]
+        aufgaben_dic_text_liste = ignore_stop_words(aufgaben_dic_text_liste)
+
+        aufgaben_dic["Text"] = " ".join(aufgaben_dic_text_liste)
 
     dataset = create_dataset(json_data)
 

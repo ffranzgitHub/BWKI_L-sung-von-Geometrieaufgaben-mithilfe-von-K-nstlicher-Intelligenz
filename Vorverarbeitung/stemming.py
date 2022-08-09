@@ -11,7 +11,7 @@ stemmer = PorterStemmer()
 
 def get_stopwords():
     with open(globale_variablen["path_to_stopwords"]) as f:
-        stop_words = [line for line in f if not line.startswith(";")].extend(["!", "?", "°"])
+        stop_words = [line for line in f if not line.startswith(";")]
     return stop_words
 
 def tokenize(sentence):
