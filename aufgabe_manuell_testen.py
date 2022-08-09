@@ -39,8 +39,7 @@ if __name__ == "__main__":
     # Vielleicht sollten wir alle Wörter lowern?
 
     dataset = vorverarbeitung_und_dataset()
-    all_words = [word for word in dataset.get_vectorizer(
-    ).aufgabe_vocab._idx_to_token.values()]
+    all_words = [word for word in dataset.get_vectorizer().aufgabe_vocab._idx_to_token.values()]
     # Diese Iteration wird benötigt um aus Dict_Values([1, 2, 3]) --> [1, 2, 3] zu machen
     # Aus mir unbekannten Gründen nimmt das stemming/bag_of_words Dict_Values([1, 2, 3]) nicht an
 
@@ -52,18 +51,15 @@ if __name__ == "__main__":
     model.load_state_dict(torch.load(globale_variablen["path_to_model"]))
     model.eval()
 
-    
     entities = dict(entities)
     input_x = tokenize(angepasster_satz)
-    input_x = bag_of_words(
-        input_x, all_words, performe_stem=False, filter_stop_words=False)
+    input_x = bag_of_words(input_x, all_words, performe_stem=False, filter_stop_words=False)
     input_x = torch.tensor(input_x)
 
     softmax = torch.nn.Softmax(dim=0)
     out = model(input_x)
     out = softmax(out)
-    result = dataset.get_vectorizer(
-    ).class_vocab._idx_to_token[torch.argmax(out).item()]
+    result = dataset.get_vectorizer().class_vocab._idx_to_token[torch.argmax(out).item()]
 
     if result == "Satz des Pythagoras":
         pythagoras(entities)

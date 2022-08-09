@@ -63,11 +63,10 @@ class ConvertmitVariable():
         named_entity_value = match_obj.group(3)  # .group(2) wäre das istgleich
         # Änderung: Gruppe 4 enthält die Einheit
         named_entity_unit = match_obj.group(4)  # None wenn nicht gefunden
-        # Änderung: if "?" in string statt if string != "?" --> erlaubt auch mehrere Fragezeichen "???"
+        # Änderung: if "?" not in string statt if string != "?" --> erlaubt auch mehrere Fragezeichen "???"
         if "?" not in named_entity_value:
             # Änderung: Auflösung der Einheiten findet hier statt
-            if "," in named_entity_value:  # TODO: schönere Abfrage, ob Kommazahl
-                named_entity_value = named_entity_value.replace(",", ".")
+            named_entity_value = named_entity_value.replace(",", ".")
             named_entity = [named_entity_name, float(named_entity_value)*unit_to_cm.get(named_entity_unit, 1)]
         else:
             # TODO: Einheiten handling bei ? implementieren -> nicht unterstützt Fehler?
@@ -76,7 +75,7 @@ class ConvertmitVariable():
         if "?" not in named_entity_value:
             string = '<Variablenzuweisung>'
         else:
-            string = "<Unbekannte Variable>"
+            string = "<UnbekannteVariable>"
 
         self.named_entities += [named_entity]
         return string
@@ -91,13 +90,11 @@ def variablenzuweisung_extrahieren(aufgabe: str):
     # Änderung: nur noch Formate, in denen die Variable links steht werden akzeptiert
     # Änderungen: die Einheit wird direkt hier erkannt und es ist kein neuer .sub() in einer neuen Funktion nötig
     # Änderungen: die Erkannten einheiten passen sich an die unterstützen Einheiten in unit_to_cm an
+
     eh = '('
-    for i, e in enumerate(unit_to_cm.keys()):
-        if i == 0:
-            eh += e
-        else:
-            eh += "|"+e
+    eh += "|".join(unit_to_cm.keys())
     eh += ")?"
+
     angepasster_string = re.sub('([a-zA-Z]+\d*|\?+) *(=|ist gleich|gleich|:|mit dem Wert|entspricht) *(\?+|\d+,\d+|\d+) *' + eh, cmv.convert, aufgabe)
 
     return angepasster_string, cmv.named_entities

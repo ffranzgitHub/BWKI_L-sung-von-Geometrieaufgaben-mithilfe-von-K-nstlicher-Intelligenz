@@ -15,6 +15,7 @@ Arbeitstand genannt.
 - [x] Model nach training speichern und dann laden (Levi)
 - [x] Umgang mit Einheiten wie cm, m, km usw. (Beide)
 - [x] Nicht mehr benötigte Dateien löschen (z.B. regex_istgleich_angleichen.py, prepare-data.py)
+- Sonderzeichen und Umlaute entfernen / in der Json Datei anpassen
 - install.py schreiben (z.b. für initialle/einmalige Downloads) (Franz)
 - nerivges Addon entfernen / enpassen (Franz)
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen (Levi)
