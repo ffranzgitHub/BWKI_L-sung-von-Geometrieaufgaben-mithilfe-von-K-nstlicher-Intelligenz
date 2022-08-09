@@ -6,21 +6,21 @@ from Daten_Laden.dataset import aufgabenDataset
 from Netz.model import AufgabenDetector
 from Daten_Laden.data import vorverarbeitung_und_dataset
 from Vorverarbeitung.stemming import bag_of_words, tokenize, stem, ignore_stop_words
-from Vorverarbeitung.convert_value_to_NE_regex import named_entities
+from Vorverarbeitung.convert_value_to_NE_regex import variablenzuweisung_extrahieren
 from Loesen_Der_Aufgaben.loesen import name_to_aufgabe, not_implemented
 import torch
 
 VECTORIZER_PATH = globale_variablen.get("path_to_saved_vectorizer")
 
-GRENZWERT_UNK_VERHÄLTNISS = globale_variablen.get("unk_threashold_percentage")
+GRENZWERT_UNK_VERHÄLTNISS = globale_variablen.get("unk_threshold_percentage")
 
 if __name__ == "__main__":
     vectorizer = aufgabenDataset.load_vectorizer_only(VECTORIZER_PATH)
     # input("gib die Aufgabe ein: ")
-    aufgabe = "Ein rechtwinkliges Dreieck hat die Katheten a=300cm und b= 4m Berechne die fehlende Hypthenuse"
+    aufgabe = "Ein rechtwinkliges Dreieck hat die Katheten a=300cm und b= 4m Berechne die fehlende Hypothenuse"
     #aufgabe = "Nenne einen Winkel für den Gilt: sin(A) = 0.5"
 
-    angepasster_satz, entities = named_entities(aufgabe)
+    angepasster_satz, entities = variablenzuweisung_extrahieren(aufgabe)
 
     # zähle Gesammttokenanzahl der Aufgabe
     # Vorher werden die Tokens aber noch gestemmt und Stoppwörter ignoriert
@@ -64,6 +64,8 @@ if __name__ == "__main__":
     softmax = torch.nn.Softmax(dim=0)
     out = model(input_x)
     out = softmax(out)
+
+    propability_of_result = f"{torch.max(out).item() * 100}%"
     result = dataset.get_vectorizer().class_vocab._idx_to_token[torch.argmax(out).item()]
 
     name_to_aufgabe.get(result, not_implemented)(entities)

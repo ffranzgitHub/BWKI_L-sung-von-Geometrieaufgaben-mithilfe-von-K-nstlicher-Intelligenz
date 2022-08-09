@@ -15,19 +15,19 @@ Arbeitstand genannt.
 - [x] Model nach training speichern und dann laden (Levi)
 - [x] Umgang mit Einheiten wie cm, m, km usw. (Beide)
 - [x] Nicht mehr benötigte Dateien löschen (z.B. regex_istgleich_angleichen.py, prepare-data.py)
-- Sonderzeichen und Umlaute entfernen / in der Json Datei anpassen
-- install.py schreiben (z.b. für initialle/einmalige Downloads) (Franz)
-- nerivges Addon entfernen / enpassen (Franz)
+- [x] Regex Anpassen (Kein unit angegeben, und Kommazahlen) (Franz)
+- [x] Die Bestimmung der Anzahl unbekannter Wörter mehr verallgemeinern (nichr auf Groß-Klein Schreibung Achten, Zahlen nicht einbeziehen usw.)
+- Preprocessing in Data.py anschauen (Franz)
+- Sonderzeichen und Umlaute entfernen / in der Json Datei anpassen (Levi)
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen (Levi)
-- Die Bestimmung der Anzahl unbekannter Wörter mehr verallgemeinern (nichr auf Groß-Klein Schreibung Achten, Zahlen nicht einbeziehen usw.)
 - Sonderzeichen entfernen
-- Regex Anpassen (Kein unit angegeben, und Kommazahlen)
 - Viele Aufgaben schreiben (Beide)
 - Daten Laden selbt erstellen
 - Preprocessing und Daten Laden verbinden
 - Training verfeinern --> parameter anpassen etc.
 - Dreiecke und andere Grafische Objekte Ausgeben
 - Projekt dokumentieren
+- install.py schreiben (z.b. für initialle/einmalige Downloads) (Franz)
 - Projekt einreichen am 11.09.2022
 
 # Generelle Erkenntnisse

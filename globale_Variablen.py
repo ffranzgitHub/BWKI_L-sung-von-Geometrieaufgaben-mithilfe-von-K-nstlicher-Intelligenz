@@ -13,6 +13,6 @@ globale_variablen = \
         "batch_size": 1,
         "path_to_stopwords": "daten/german_stopwords.txt",
         "learning_rate": 0.01,
-        "unk_threashold_percentage": 0.2,
+        "unk_threshold_percentage": 0.2,
         "path_to_model": "gespeicherte_Klassen/model.pt"
     }
