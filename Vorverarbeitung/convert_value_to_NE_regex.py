@@ -8,6 +8,7 @@ herunterzubrechen, um vom NLP Verfahren wie BoW nicht als verschiedene Worte erk
 '''
 import re
 
+# TODO: Einheiten richtig?
 # TODO: Reinfolge mm -> m wichtig für regex, kann man das unabhängig machen
 unit_to_cm = \
     {
@@ -26,7 +27,12 @@ testaufgaben = \
         "Ein Dreieck hat die Hypotenuse a : 10cm und b = 20cm",
         "Ein Dreieck hat die Hypotenuse a : 10mm und b = 20mm",
         "Ein Dreieck hat die Hypotenuse a : 10 und b = 20",
-        # TODO: float Zahlen
+        # float Zahlen
+        "Ein Dreieck hat die Hypotenuse a : 10,111km und b = 20,222km",
+        "Ein Dreieck hat die Hypotenuse a : 10,111dm und b = 20,222dm",
+        "Ein Dreieck hat die Hypotenuse a : 10,111cm und b = 20,222cm",
+        "Ein Dreieck hat die Hypotenuse a : 10,111mm und b = 20,222mm",
+        "Ein Dreieck hat die Hypotenuse a : 10,111 und b = 20,222",
         # Zuweisung andersherum
         "Ein Dreieck hat die Hypotenuse 10cm : a1 und 20 = a1",
         # Abgrenzung von anderen Situationen
@@ -41,7 +47,6 @@ class ConvertmitVariable():
     die Klasse ist eine Hilfsklasse welche die Hilfsfunktion convert enthält. Die Klasse ist dabei
     notwendig, um nicht nur die Variablenzuweisungen auszutauschen, sondern um alle Variablen und 
     deren Werte in named_entitys zu speichern und darauf zugreifen zu können
-
     '''
 
     def __init__(self):
@@ -58,14 +63,15 @@ class ConvertmitVariable():
         named_entity_value = match_obj.group(3)  # .group(2) wäre das istgleich
         # Änderung: Gruppe 4 enthält die Einheit
         named_entity_unit = match_obj.group(4)  # None wenn nicht gefunden
-
-        if "?" in named_entity_value:
+        # Änderung: if "?" in string statt if string != "?" --> erlaubt auch mehrere Fragezeichen "???"
+        if "?" not in named_entity_value:
             # Änderung: Auflösung der Einheiten findet hier statt
+            if "," in named_entity_value:  # TODO: schönere Abfrage, ob Kommazahl
+                named_entity_value = named_entity_value.replace(",", ".")
             named_entity = [named_entity_name, float(named_entity_value)*unit_to_cm.get(named_entity_unit, 1)]
         else:
             # TODO: Einheiten handling bei ? implementieren -> nicht unterstützt Fehler?
             named_entity = [named_entity_name, named_entity_value]
-
         # alle konkret unterschiedlichen Variablenzuweisungen werden hier zu einer gleichen Vokabel
         if "?" not in named_entity_value:
             string = '<Variablenzuweisung>'
@@ -73,10 +79,11 @@ class ConvertmitVariable():
             string = "<Unbekannte Variable>"
 
         self.named_entities += [named_entity]
-
         return string
 
 # Änderung: zweite regex Funktion weggelassen
+
+# TODO: soll die Funktion alle Aufgaben auf einmal als Liste übernehmen, ändern und zurückgeben oder so lassen?
 
 
 def variablenzuweisung_extrahieren(aufgabe: str):
