@@ -18,6 +18,23 @@ unit_to_cm = \
         "cm": 1,
     }
 
+# TODO: Testen in eine seperate Test Datei verschieben
+testaufgaben = \
+    [   # Testen der verschiedenen Einheiten
+        "Ein Dreieck hat die Hypotenuse a : 10km und b = 20km",
+        "Ein Dreieck hat die Hypotenuse a : 10dm und b = 20dm",
+        "Ein Dreieck hat die Hypotenuse a : 10cm und b = 20cm",
+        "Ein Dreieck hat die Hypotenuse a : 10mm und b = 20mm",
+        "Ein Dreieck hat die Hypotenuse a : 10 und b = 20",
+        # TODO: float Zahlen
+        # Zuweisung andersherum
+        "Ein Dreieck hat die Hypotenuse 10cm : a1 und 20 = a1",
+        # Abgrenzung von anderen Situationen
+        "Ein Dreieck hat die Hypotenuse a : 10random und b = 20random",
+        "Die Länge der Katheten: 10cm, 20cm. Berechne die Hypothenuse",
+        "Ein Dreieck hat die Hypotenuse a : 10mm und b = 20mm.",
+    ]
+
 
 class ConvertmitVariable():
     '''
@@ -42,15 +59,15 @@ class ConvertmitVariable():
         # Änderung: Gruppe 4 enthält die Einheit
         named_entity_unit = match_obj.group(4)  # None wenn nicht gefunden
 
-        if named_entity_value != "?":
+        if "?" in named_entity_value:
             # Änderung: Auflösung der Einheiten findet hier statt
             named_entity = [named_entity_name, float(named_entity_value)*unit_to_cm.get(named_entity_unit, 1)]
         else:
-            # TODO: Einheiten handling bei ? implementieren
+            # TODO: Einheiten handling bei ? implementieren -> nicht unterstützt Fehler?
             named_entity = [named_entity_name, named_entity_value]
 
         # alle konkret unterschiedlichen Variablenzuweisungen werden hier zu einer gleichen Vokabel
-        if named_entity_value != "?":
+        if "?" not in named_entity_value:
             string = '<Variablenzuweisung>'
         else:
             string = "<Unbekannte Variable>"
@@ -59,7 +76,8 @@ class ConvertmitVariable():
 
         return string
 
-#Änderung: zweite regex Funktion weggelassen
+# Änderung: zweite regex Funktion weggelassen
+
 
 def variablenzuweisung_extrahieren(aufgabe: str):
     cmv = ConvertmitVariable()
@@ -79,16 +97,14 @@ def variablenzuweisung_extrahieren(aufgabe: str):
 
 
 if __name__ == "__main__":
-    angepasster_string, entities = variablenzuweisung_extrahieren(
-        "Ein Dreieck hat die Hypotenuse a : 10km und b = 20mm")
-    print()
 
-#string1= ''' a = 10; b  =  20'''
-#string2= ''' a = 10; b  =  20; 10=c; 200= a'''
-# string3= ''' a = 10;
-#b = 20
-# c = 30  d=40
-# alpa = 4,5 betha =  5,5
-#
-# asdflöjj.a = ?. 10,10  =  10,10
-# '''
+    # Änderung: es werden meherer Strings gleichzeigit getestet
+    all_angepasste_strings = []
+    all_entities = []
+
+    for aufgabe in testaufgaben:
+        neuer_string, entites = variablenzuweisung_extrahieren(aufgabe)
+        all_angepasste_strings += [neuer_string]
+        all_entities += [entites]
+
+    print()
