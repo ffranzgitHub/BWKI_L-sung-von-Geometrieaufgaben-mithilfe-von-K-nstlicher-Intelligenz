@@ -39,7 +39,6 @@ if __name__ == "__main__":
         print("Nicht aktzeptiert! Unbekannte Wörter: {} von {}".format(
             unk_number, aufgabe_count))
 
-
     # TODO müssen wir das Dataset hier neu erstellen oder können wir das "von oben" nutzen?
     # Dann könnten wir vielleicht auch den Vectorizer direkt mitnutzen
     # und müssen nicht hier bag_of_words aufrufen
@@ -57,17 +56,14 @@ if __name__ == "__main__":
     model.load_state_dict(torch.load(globale_variablen["path_to_model"]))
     model.eval()
 
-    
     entities = dict(entities)
     input_x = tokenize(angepasster_satz)
-    input_x = bag_of_words(
-        input_x, all_words, performe_stem=False, filter_stop_words=False)
+    input_x = bag_of_words(input_x, all_words, performe_stem=False, filter_stop_words=False)
     input_x = torch.tensor(input_x)
 
     softmax = torch.nn.Softmax(dim=0)
     out = model(input_x)
     out = softmax(out)
-    propability_of_result = f"{torch.max(out).item() * 100}%"
     result = dataset.get_vectorizer().class_vocab._idx_to_token[torch.argmax(out).item()]
 
     name_to_aufgabe.get(result, not_implemented)(entities)

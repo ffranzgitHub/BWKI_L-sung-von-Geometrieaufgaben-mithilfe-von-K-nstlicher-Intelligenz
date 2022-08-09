@@ -8,15 +8,38 @@ herunterzubrechen, um vom NLP Verfahren wie BoW nicht als verschiedene Worte erk
 '''
 import re
 
-
+# TODO: Einheiten richtig?
+# TODO: Reinfolge mm -> m wichtig für regex, kann man das unabhängig machen
 unit_to_cm = \
     {
+        "mm": 0.1,
         "km": 100_000,
         "m": 100,
         "dm": 10,
         "cm": 1,
-        "mm": 0.1,
     }
+
+# TODO: Testen in eine seperate Test Datei verschieben
+testaufgaben = \
+    [   # Testen der verschiedenen Einheiten
+        "Ein Dreieck hat die Hypotenuse a : 10km und b = 20km",
+        "Ein Dreieck hat die Hypotenuse a : 10dm und b = 20dm",
+        "Ein Dreieck hat die Hypotenuse a : 10cm und b = 20cm",
+        "Ein Dreieck hat die Hypotenuse a : 10mm und b = 20mm",
+        "Ein Dreieck hat die Hypotenuse a : 10 und b = 20",
+        # float Zahlen
+        "Ein Dreieck hat die Hypotenuse a : 10,111km und b = 20,222km",
+        "Ein Dreieck hat die Hypotenuse a : 10,111dm und b = 20,222dm",
+        "Ein Dreieck hat die Hypotenuse a : 10,111cm und b = 20,222cm",
+        "Ein Dreieck hat die Hypotenuse a : 10,111mm und b = 20,222mm",
+        "Ein Dreieck hat die Hypotenuse a : 10,111 und b = 20,222",
+        # Zuweisung andersherum
+        "Ein Dreieck hat die Hypotenuse 10cm : a1 und 20 = a1",
+        # Abgrenzung von anderen Situationen
+        "Ein Dreieck hat die Hypotenuse a : 10random und b = 20random",
+        "Die Länge der Katheten: 10cm, 20cm. Berechne die Hypothenuse",
+        "Ein Dreieck hat die Hypotenuse a : 10mm und b = 20mm.",
+    ]
 
 
 class ConvertmitVariable():
@@ -24,7 +47,6 @@ class ConvertmitVariable():
     die Klasse ist eine Hilfsklasse welche die Hilfsfunktion convert enthält. Die Klasse ist dabei
     notwendig, um nicht nur die Variablenzuweisungen auszutauschen, sondern um alle Variablen und 
     deren Werte in named_entitys zu speichern und darauf zugreifen zu können
-
     '''
 
     def __init__(self):
@@ -37,67 +59,56 @@ class ConvertmitVariable():
         convert ist eine Hilfsfunktion, die bei einem Treffer der Regex aufgerufen wird
         Der zurückgegebene string ersetzt den gemachten Teil
         '''
-        # TODO: named_entity_name nimmt immer das erste Element. Aber was ist, wenn der Name nach dem "=" kommt z.b: 3=a
         named_entity_name = match_obj.group(1)
         named_entity_value = match_obj.group(3)  # .group(2) wäre das istgleich
-
-        named_entity_value = re.sub(
-            "(\d+)(\D+)", self.append_units, named_entity_value)  # TODO: auch float erkennen
-
-        # Name und Werte der Variablenzuweisung werden gespeichert
-        named_entity = [named_entity_name, named_entity_value]
-
+        # Änderung: Gruppe 4 enthält die Einheit
+        named_entity_unit = match_obj.group(4)  # None wenn nicht gefunden
+        # Änderung: if "?" not in string statt if string != "?" --> erlaubt auch mehrere Fragezeichen "???"
+        if "?" not in named_entity_value:
+            # Änderung: Auflösung der Einheiten findet hier statt
+            named_entity_value = named_entity_value.replace(",", ".")
+            named_entity = [named_entity_name, float(named_entity_value)*unit_to_cm.get(named_entity_unit, 1)]
+        else:
+            # TODO: Einheiten handling bei ? implementieren -> nicht unterstützt Fehler?
+            named_entity = [named_entity_name, named_entity_value]
         # alle konkret unterschiedlichen Variablenzuweisungen werden hier zu einer gleichen Vokabel
-        if named_entity_value != "?":
+        if "?" not in named_entity_value:
             string = '<Variablenzuweisung>'
         else:
-            string = "<Unbekannte_Variable>"
+            string = "<UnbekannteVariable>"
 
         self.named_entities += [named_entity]
-
         return string
 
-    # TODO Namen der Funktion ändern
-    # TODO Wenn keine Einheit angegeben wird, wird diese Funktion anscheinend nicht korrekt aufgerufen. Dagegen müssen wir etwas tun
-    def append_units(self, match_obj):
-        named_entity_number = match_obj.group(1)
+# Änderung: zweite regex Funktion weggelassen
 
-        named_entity_unit = match_obj.group(2)
-        self.units.append(named_entity_unit)
-
-        return named_entity_number
+# TODO: soll die Funktion alle Aufgaben auf einmal als Liste übernehmen, ändern und zurückgeben oder so lassen?
 
 
-#beispiel_aufgabe= "Katheten: a=5cm und b   =   8cm Berechne die Hypothenuse"
-
-
-# Der Coding Style hier ist sehr schlecht von mir. Wollte nur was testen
-def named_entities(aufgabe: str):
+def variablenzuweisung_extrahieren(aufgabe: str):
     cmv = ConvertmitVariable()
+    # Änderung: nur noch Formate, in denen die Variable links steht werden akzeptiert
+    # Änderungen: die Einheit wird direkt hier erkannt und es ist kein neuer .sub() in einer neuen Funktion nötig
+    # Änderungen: die Erkannten einheiten passen sich an die unterstützen Einheiten in unit_to_cm an
 
-    angepasster_string = re.sub(
-        '(\d+,\d+|\w+|\?+) *(=|ist gleich|gleich|:|mit dem Wert|entspricht) *(\?+|\d+,\d+|\w+)', cmv.convert, aufgabe)
+    eh = '('
+    eh += "|".join(unit_to_cm.keys())
+    eh += ")?"
 
-    # print('\n'+angepasster_string)
-    # print('\nnamed entitys:\n'+str(cmv.named_entitys))
+    angepasster_string = re.sub('([a-zA-Z]+\d*|\?+) *(=|ist gleich|gleich|:|mit dem Wert|entspricht) *(\?+|\d+,\d+|\d+) *' + eh, cmv.convert, aufgabe)
 
-    entities = [[entity[0], float(entity[1]) * unit_to_cm.get(unit, 1)] 
-                if entity[1]!="?" else [entity[0], entity[1]]
-                for entity, unit in zip(cmv.named_entities, cmv.units)]
-
-    return angepasster_string, entities
+    return angepasster_string, cmv.named_entities
 
 
 if __name__ == "__main__":
-    angepasster_string, entities = named_entities("Ein Dreieck hat die Hypotenuse a : 10cm und b = 20cm")
-    print()
 
-#string1= ''' a = 10; b  =  20'''
-#string2= ''' a = 10; b  =  20; 10=c; 200= a'''
-# string3= ''' a = 10;
-#b = 20
-# c = 30  d=40
-# alpa = 4,5 betha =  5,5
-#
-# asdflöjj.a = ?. 10,10  =  10,10
-# '''
+    # Änderung: es werden meherer Strings gleichzeigit getestet
+    all_angepasste_strings = []
+    all_entities = []
+
+    for aufgabe in testaufgaben:
+        neuer_string, entites = variablenzuweisung_extrahieren(aufgabe)
+        all_angepasste_strings += [neuer_string]
+        all_entities += [entites]
+
+    print()

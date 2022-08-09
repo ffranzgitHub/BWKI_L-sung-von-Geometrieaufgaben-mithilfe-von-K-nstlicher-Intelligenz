@@ -16,7 +16,7 @@ else:
     import json
     from Daten_Laden.dataset import aufgabenDataset
     import random
-    from Vorverarbeitung.convert_value_to_NE_regex import named_entities
+    from Vorverarbeitung.convert_value_to_NE_regex import variablenzuweisung_extrahieren
     from Vorverarbeitung.stemming import stem, ignore_stop_words, tokenize
 
 
@@ -71,8 +71,7 @@ def __add_split(data):
     '''
     # The split must be random and include all classes equaly in all parts
     # sorted_data erstellen mit {"Aufgabentpy1": ["text1", "text2"], "Aufgabentyp2", [text3, text4]}
-    sorted_data = dict.fromkeys(
-        unique([d.get("Aufgabentyp") for d in data]), None)
+    sorted_data = dict.fromkeys(unique([d.get("Aufgabentyp") for d in data]), None)
     for datenpunkt in data:
         if not sorted_data[datenpunkt["Aufgabentyp"]]:
             sorted_data[datenpunkt["Aufgabentyp"]] = []
@@ -101,9 +100,6 @@ def __add_split(data):
             # TODO: richtigen Error Raisen
             print("ERROR")
 
-    # Verhältniss der Klassen in einem Split gleichhalten
-    # TODO: Die Vehältnisse zwischen test/val/train müssen übergeben werden
-
 
 def create_dataset(json_data):
     __add_split(json_data)
@@ -118,7 +114,7 @@ def vorverarbeitung_und_dataset():
         json_data = json.loads(file.read())
 
     for aufgaben_dic in json_data:
-        aufgaben_dic["Text"], _ = named_entities(aufgaben_dic["Text"])
+        aufgaben_dic["Text"], _ = variablenzuweisung_extrahieren(aufgaben_dic["Text"])
 
         aufgaben_dic_text_liste = aufgaben_dic["Text"].split(" ")
         aufgaben_dic_text_liste = [stem(word) for word in aufgaben_dic_text_liste]
