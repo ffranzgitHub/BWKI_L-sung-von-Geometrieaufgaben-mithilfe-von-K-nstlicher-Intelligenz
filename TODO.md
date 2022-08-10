@@ -20,7 +20,6 @@ Arbeitstand genannt.
 - Preprocessing in Data.py anschauen (Franz)
 - Sonderzeichen und Umlaute entfernen / in der Json Datei anpassen (Levi)
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen (Levi)
-- Sonderzeichen entfernen
 - Viele Aufgaben schreiben (Beide)
 - Daten Laden selbt erstellen
 - Preprocessing und Daten Laden verbinden

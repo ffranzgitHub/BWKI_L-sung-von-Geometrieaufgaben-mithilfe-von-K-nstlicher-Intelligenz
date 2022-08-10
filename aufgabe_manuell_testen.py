@@ -14,10 +14,23 @@ VECTORIZER_PATH = globale_variablen.get("path_to_saved_vectorizer")
 
 GRENZWERT_UNK_VERHÄLTNISS = globale_variablen.get("unk_threshold_percentage")
 
+sonderzeichen_zu_ascii = \
+    {
+        "Ä" : "ae",
+        "Ü": "ue",
+        "Ö": "oe",
+        "ä" : "ae",
+        "ü": "ue",
+        "ö": "oe",
+        "ß": "ss"
+    }
+
 if __name__ == "__main__":
     vectorizer = aufgabenDataset.load_vectorizer_only(VECTORIZER_PATH)
     # input("gib die Aufgabe ein: ")
-    aufgabe = "Ein rechtwinkliges Dreieck hat die Katheten a=300cm und b= 4m Berechne die fehlende Hypothenuse"
+    aufgabe = "Ein rechtwinkliges Dreieck hat die Äathäten a=300cm und b= 4m Berechne die fehlende Hypothenuse"
+    print()
+    aufgabe = "".join([sonderzeichen_zu_ascii.get(letter, letter) for letter in aufgabe]) 
     #aufgabe = "Nenne einen Winkel für den Gilt: sin(A) = 0.5"
 
     angepasster_satz, entities = variablenzuweisung_extrahieren(aufgabe)
