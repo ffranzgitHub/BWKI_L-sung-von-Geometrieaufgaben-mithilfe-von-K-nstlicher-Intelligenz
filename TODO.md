@@ -17,8 +17,8 @@ Arbeitstand genannt.
 - [x] Nicht mehr benötigte Dateien löschen (z.B. regex_istgleich_angleichen.py, prepare-data.py)
 - [x] Regex Anpassen (Kein unit angegeben, und Kommazahlen) (Franz)
 - [x] Die Bestimmung der Anzahl unbekannter Wörter mehr verallgemeinern (nichr auf Groß-Klein Schreibung Achten, Zahlen nicht einbeziehen usw.)
+- [x] Sonderzeichen und Umlaute entfernen / in der Json Datei anpassen (Levi)
 - Preprocessing in Data.py anschauen (Franz)
-- Sonderzeichen und Umlaute entfernen / in der Json Datei anpassen (Levi)
 - Lösen der Aufgaben mit gegebenen Informationen: Aufgabentyp, Steienlängen, Winkelgrößen (Levi)
 - Viele Aufgaben schreiben (Beide)
 - Daten Laden selbt erstellen
