@@ -9,6 +9,7 @@ from Vorverarbeitung.stemming import bag_of_words, tokenize, stem, ignore_stop_w
 from Vorverarbeitung.convert_value_to_NE_regex import variablenzuweisung_extrahieren
 from Loesen_Der_Aufgaben.loesen import name_to_aufgabe, not_implemented
 import torch
+import os
 
 VECTORIZER_PATH = globale_variablen.get("path_to_saved_vectorizer")
 
@@ -28,7 +29,7 @@ sonderzeichen_zu_ascii = \
 if __name__ == "__main__":
     vectorizer = aufgabenDataset.load_vectorizer_only(VECTORIZER_PATH)
     # input("gib die Aufgabe ein: ")
-    aufgabe = "Ein rechtwinkliges Dreieck hat die Äathäten a=300cm und b= 4m Berechne die fehlende Hypothenuse"
+    aufgabe = ""
     print()
     aufgabe = "".join([sonderzeichen_zu_ascii.get(letter, letter) for letter in aufgabe]) 
     #aufgabe = "Nenne einen Winkel für den Gilt: sin(A) = 0.5"
@@ -46,10 +47,10 @@ if __name__ == "__main__":
 
     verhältniss = unk_number / aufgabe_count
     if verhältniss <= GRENZWERT_UNK_VERHÄLTNISS:
-        print("Aktzeptiert! Unbekannte Wörter: {} von {}".format(
+        print("Lösung vermutlich nicht fehlerhaft! Unbekannte Wörter: {} von {}".format(
             unk_number, aufgabe_count))
     else:
-        print("Nicht aktzeptiert! Unbekannte Wörter: {} von {}".format(
+        print("Lösung vermutlich fehlerhaft! Unbekannte Wörter: {} von {}".format(
             unk_number, aufgabe_count))
 
     # TODO müssen wir das Dataset hier neu erstellen oder können wir das "von oben" nutzen?
@@ -66,7 +67,9 @@ if __name__ == "__main__":
     num_classes = len(dataset.get_vectorizer().class_vocab)
 
     model = AufgabenDetector(input_size, hidden_size, num_classes)
-    model.load_state_dict(torch.load(globale_variablen["path_to_model"]))
+    progress_training_path = os.listdir(globale_variablen["path_to_progress"])[-1]
+    progress_name = os.listdir(globale_variablen["path_to_progress"]+progress_training_path)[-1]
+    model.load_state_dict(torch.load(globale_variablen["path_to_progress"]+progress_training_path+"/"+progress_name)["save_model"])
     model.eval()
 
     entities = dict(entities)
@@ -78,8 +81,9 @@ if __name__ == "__main__":
     out = model(input_x)
     out = softmax(out)
 
-    propability_of_result = f"{torch.max(out).item() * 100}%"
+    propability_of_result = f"{(torch.max(out).item() * 100):.2f}%"
     result = dataset.get_vectorizer().class_vocab._idx_to_token[torch.argmax(out).item()]
+    print("Aufgabentyp: '" + result + "' mit einer Wahrscheinlichkeit von " + propability_of_result)
 
     name_to_aufgabe.get(result, not_implemented)(entities)
 

@@ -3,7 +3,7 @@ globale_variablen = \
     {
         "path_to_data": "daten/Aufgaben_Serlo_Json.json",
         "hidden_size": 256,
-        "num_epoches": 100,
+        "num_epoches": 10_000,
         "device": "cpu",
         "split_test": 0.1,
         "split_val": 0.1,
@@ -14,5 +14,6 @@ globale_variablen = \
         "path_to_stopwords": "daten/german_stopwords.txt",
         "learning_rate": 0.01,
         "unk_threshold_percentage": 0.2,
-        "path_to_model": "gespeicherte_Klassen/model.pt"
+        "path_to_model": "gespeicherte_Klassen/model.pt",
+        "path_to_progress": "gespeicherte_Klassen/models/" # + name of training
     }

@@ -47,7 +47,7 @@ def pythagoras(gegebene_werte):
 def sinus_cosinus(gegebene_werte):
     if "sin(A)" in gegebene_werte.keys():
         a = math.degrees(math.asin(gegebene_werte["sin(A)"]))
-        print(f"Der Winkel A beträgtr {a}°")
+        print(f"Der Winkel A beträgt {a}°")
         return
     else:
         not_implemented()
@@ -66,7 +66,7 @@ def kongruenz(gegebene_werte):
     not_implemented(gegebene_werte)
 
 
-def not_implemented(gegebene_werte):
+def not_implemented(gegebene_werte=None):
     raise NotImplementedException()
 
 
