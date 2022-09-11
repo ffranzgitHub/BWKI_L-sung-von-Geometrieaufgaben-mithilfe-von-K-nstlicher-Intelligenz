@@ -21,6 +21,7 @@ Arbeitstand genannt.
 - [x] Regex Anpassen (Kein unit angegeben, und Kommazahlen) (Franz)
 - [x] Die Bestimmung der Anzahl unbekannter Wörter mehr verallgemeinern (nichr auf Groß-Klein Schreibung Achten, Zahlen nicht einbeziehen usw.)
 - [x] Sonderzeichen und Umlaute entfernen / in der Json Datei anpassen (Levi)
+- install.py schreiben (z.b. für initialle/einmalige Downloads) (Franz)
 - Preprocessing in Data.py anschauen (Franz)
 - gleichzeitiges Speichern/Laden von Vektorizer und Model (Franz)
 - regexs anpassen, um auch sin(), cos(), etc. verarbeiten zu können
@@ -32,7 +33,6 @@ Arbeitstand genannt.
 - Training verfeinern --> parameter anpassen etc.
 - Dreiecke und andere Grafische Objekte Ausgeben
 - Projekt dokumentieren
-- install.py schreiben (z.b. für initialle/einmalige Downloads) (Franz)
 - Projekt einreichen am 11.09.2022
 
 # Generelle Erkenntnisse
