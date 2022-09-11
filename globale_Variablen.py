@@ -3,7 +3,7 @@ globale_variablen = \
     {
         "path_to_data": "daten/Aufgaben_Serlo_Json.json",
         "hidden_size": 256,
-        "num_epoches": 10_000,
+        "num_epoches": 10_000, # können auch zwischendurch abgebrochen werde
         "device": "cpu",
         "split_test": 0.1,
         "split_val": 0.1,

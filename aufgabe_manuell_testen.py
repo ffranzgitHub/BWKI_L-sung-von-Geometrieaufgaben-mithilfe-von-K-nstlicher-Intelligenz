@@ -29,7 +29,7 @@ sonderzeichen_zu_ascii = \
 if __name__ == "__main__":
     vectorizer = aufgabenDataset.load_vectorizer_only(VECTORIZER_PATH)
     # input("gib die Aufgabe ein: ")
-    aufgabe = ""
+    aufgabe = "Ein Dreieck hat die Katheten a=3c b=4cm Berechne die Hypothenuse"
     print()
     aufgabe = "".join([sonderzeichen_zu_ascii.get(letter, letter) for letter in aufgabe]) 
     #aufgabe = "Nenne einen Winkel für den Gilt: sin(A) = 0.5"

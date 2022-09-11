@@ -49,8 +49,6 @@ all_counter = 0     # Zählt die Batches, getestet wurden
 last_logs = []
 training_name = str(datetime.now().strftime("%d.%m.%Y.%H.%M.%S"))
 os.mkdir(f"{globale_variablen['path_to_progress']}{training_name}")
-#os.mkdir(f"{globale_variablen['path_to_progress']}{training_name}/1")
-# -1 damit bereits eine 'Epoche' gespeichert ist und max kein Empty Arg bekommt
 
 for epoch_i in range(NUM_EPOCHS):
     batches = generate_batches(dataset, globale_variablen.get("batch_size"))
@@ -94,7 +92,7 @@ for epoch_i in range(NUM_EPOCHS):
         optimizer.step()
 
 
-    if epoch_i % 1_000 == 0:
+    if epoch_i % 500 == 0:
             save_current_progress(model, last_logs, training_name)
             last_logs = []
 
