@@ -92,7 +92,7 @@
     {
         "Text": "Ein Dreieck hat die Seitenlängen a=5cm, b:13cm und c=12cm. Ist es Rechtwinklig?",
         "Aufgabentyp": "Satz des Pythagoras",
-        "Ja-Nein Frage": false
+        "Ja-Nein Frage": true
     },
     {
         "Text": "Ein Dreieck hat die Seitenlängen a=5cm, b=13cm und c ist gleich 12cm. Ist es Rechtwinklig?",

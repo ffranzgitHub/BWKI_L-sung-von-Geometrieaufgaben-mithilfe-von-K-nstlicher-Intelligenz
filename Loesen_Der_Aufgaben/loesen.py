@@ -67,7 +67,8 @@ def kongruenz(gegebene_werte):
 
 
 def not_implemented(gegebene_werte=None):
-    raise NotImplementedException()
+    print("Für diesenaufgabentypen haben wir noch keine Lösung implementiert!")
+    #raise NotImplementedException()
 
 
 name_to_aufgabe = \
